@@ -1,0 +1,7 @@
+# Case files must reach the G4 runtime byte for byte (the SHA-256 manifest checks it),
+# so git must never rewrite their line endings.
+cases/** -text
+jobs/** -text
+# scripts run on Linux and macOS
+*.sh text eol=lf
+foamctl text eol=lf

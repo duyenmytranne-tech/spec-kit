@@ -1,0 +1,26 @@
+#!/bin/bash
+# foamctl - Mac Mini M4 side of the OpenFOAM G4 runner.
+#
+#   ./foamctl doctor                         check python, git and folders
+#   ./foamctl apps                           the 21 applications and their G4 profile
+#   ./foamctl submit cases/myCase --gpu auto sign the case (SHA-256), queue it, push
+#   ./foamctl submit --template ud01         queue a ready application job
+#   ./foamctl estimate --cells-m 20          capacity model of the G4 (same as the report)
+#
+# Nothing is logged or stored by this script; it only writes the job file,
+# updates jobs/active.json and pushes them with git.
+# Compatible with the macOS system bash (3.2) and python3 >= 3.9.
+set -eu
+
+HERE="$(cd "$(dirname "$0")" && pwd -P)"
+PY="${G4_PYTHON:-python3}"
+
+if ! command -v "$PY" >/dev/null 2>&1; then
+    echo "foamctl: $PY not found. Install the Command Line Tools: xcode-select --install" >&2
+    exit 127
+fi
+
+export PYTHONDONTWRITEBYTECODE=1
+export PYTHONPATH="$HERE${PYTHONPATH:+:$PYTHONPATH}"
+cd "$HERE"
+exec "$PY" -B -m g4runner "$@"

@@ -1,0 +1,16 @@
+# Python byte code (the runner itself never writes it: PYTHONDONTWRITEBYTECODE=1)
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# macOS metadata (also excluded from the SHA-256 manifest)
+.DS_Store
+._*
+
+# solver output never belongs in git; the G4 runner keeps results in RAM only
+cases/**/processor*/
+cases/**/postProcessing/
+cases/**/VTK/
+cases/**/dynamicCode/
+cases/**/log.*
+cases/**/*.foam
