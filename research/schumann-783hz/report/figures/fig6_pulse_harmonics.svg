@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" width="760" height="360" font-family="Liberation Sans, Arial, Helvetica, DejaVu Sans, sans-serif" role="img" aria-label="Hình 6. Phổ hài của chuỗi xung 7,83 Hz theo hệ số lấp đầy D">
+<title>Hình 6. Phổ hài của chuỗi xung 7,83 Hz theo hệ số lấp đầy D</title>
+<desc>Cột đôi cho n = 1..12: sóng vuông chỉ có hài lẻ, xung hẹp rải năng lượng ra nhiều hài.</desc>
+<rect x="0" y="0" width="760" height="360" fill="#fcfcfb"/>
+<text x="72" y="22" font-size="15" font-weight="700" fill="#0b0b0b">Hình 6. Phổ hài của chuỗi xung 7,83 Hz theo hệ số lấp đầy D</text>
+<text x="72" y="40" font-size="12" fill="#52514e">Xung hẹp (D = 10 %) chỉ đặt khoảng 21 % công suất xoay chiều ở 7,83 Hz</text>
+<line x1="72.00" y1="302.00" x2="736.00" y2="302.00" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="72.00" y1="234.00" x2="736.00" y2="234.00" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="72.00" y1="166.00" x2="736.00" y2="166.00" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="72.00" y1="98.00" x2="736.00" y2="98.00" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="72.00" y1="302.00" x2="736.00" y2="302.00" stroke="#c3c2b7" stroke-width="1"/>
+<line x1="104.66" y1="302.00" x2="104.66" y2="306.00" stroke="#c3c2b7"/>
+<line x1="159.08" y1="302.00" x2="159.08" y2="306.00" stroke="#c3c2b7"/>
+<line x1="213.51" y1="302.00" x2="213.51" y2="306.00" stroke="#c3c2b7"/>
+<line x1="267.93" y1="302.00" x2="267.93" y2="306.00" stroke="#c3c2b7"/>
+<line x1="322.36" y1="302.00" x2="322.36" y2="306.00" stroke="#c3c2b7"/>
+<line x1="376.79" y1="302.00" x2="376.79" y2="306.00" stroke="#c3c2b7"/>
+<line x1="431.21" y1="302.00" x2="431.21" y2="306.00" stroke="#c3c2b7"/>
+<line x1="485.64" y1="302.00" x2="485.64" y2="306.00" stroke="#c3c2b7"/>
+<line x1="540.07" y1="302.00" x2="540.07" y2="306.00" stroke="#c3c2b7"/>
+<line x1="594.49" y1="302.00" x2="594.49" y2="306.00" stroke="#c3c2b7"/>
+<line x1="648.92" y1="302.00" x2="648.92" y2="306.00" stroke="#c3c2b7"/>
+<line x1="703.34" y1="302.00" x2="703.34" y2="306.00" stroke="#c3c2b7"/>
+<path d="M88.40,302.00 V89.56 Q88.40,85.56 92.40,85.56 H98.40 Q102.40,85.56 102.40,89.56 V302.00 Z" fill="#2a78d6"><title>D=0,5, n=1 (7.83 Hz): 0.6366</title></path>
+<path d="M106.91,302.00 V239.12 Q106.91,235.12 110.91,235.12 H116.91 Q120.91,235.12 120.91,239.12 V302.00 Z" fill="#eb6834"><title>D=0,1, n=1 (7.83 Hz): 0.1967</title></path>
+<path d="M142.83,302.00 V302.00 Q142.83,302.00 142.83,302.00 H156.83 Q156.83,302.00 156.83,302.00 V302.00 Z" fill="#2a78d6"><title>D=0,5, n=2 (15.66 Hz): 0.0000</title></path>
+<path d="M161.33,302.00 V242.39 Q161.33,238.39 165.33,238.39 H171.33 Q175.33,238.39 175.33,242.39 V302.00 Z" fill="#eb6834"><title>D=0,1, n=2 (15.66 Hz): 0.1871</title></path>
+<path d="M197.26,302.00 V233.85 Q197.26,229.85 201.26,229.85 H207.26 Q211.26,229.85 211.26,233.85 V302.00 Z" fill="#2a78d6"><title>D=0,5, n=3 (23.49 Hz): 0.2122</title></path>
+<path d="M215.76,302.00 V247.62 Q215.76,243.62 219.76,243.62 H225.76 Q229.76,243.62 229.76,247.62 V302.00 Z" fill="#eb6834"><title>D=0,1, n=3 (23.49 Hz): 0.1717</title></path>
+<path d="M251.68,302.00 V302.00 Q251.68,302.00 251.68,302.00 H265.68 Q265.68,302.00 265.68,302.00 V302.00 Z" fill="#2a78d6"><title>D=0,5, n=4 (31.32 Hz): 0.0000</title></path>
+<path d="M270.19,302.00 V254.52 Q270.19,250.52 274.19,250.52 H280.19 Q284.19,250.52 284.19,254.52 V302.00 Z" fill="#eb6834"><title>D=0,1, n=4 (31.32 Hz): 0.1514</title></path>
+<path d="M306.11,302.00 V262.72 Q306.11,258.72 310.11,258.72 H316.11 Q320.11,258.72 320.11,262.72 V302.00 Z" fill="#2a78d6"><title>D=0,5, n=5 (39.15 Hz): 0.1273</title></path>
+<path d="M324.61,302.00 V262.72 Q324.61,258.72 328.61,258.72 H334.61 Q338.61,258.72 338.61,262.72 V302.00 Z" fill="#eb6834"><title>D=0,1, n=5 (39.15 Hz): 0.1273</title></path>
+<path d="M360.53,302.00 V302.00 Q360.53,302.00 360.53,302.00 H374.53 Q374.53,302.00 374.53,302.00 V302.00 Z" fill="#2a78d6"><title>D=0,5, n=6 (46.98 Hz): 0.0000</title></path>
+<path d="M379.04,302.00 V271.69 Q379.04,267.69 383.04,267.69 H389.04 Q393.04,267.69 393.04,271.69 V302.00 Z" fill="#eb6834"><title>D=0,1, n=6 (46.98 Hz): 0.1009</title></path>
+<path d="M414.96,302.00 V275.09 Q414.96,271.09 418.96,271.09 H424.96 Q428.96,271.09 428.96,275.09 V302.00 Z" fill="#2a78d6"><title>D=0,5, n=7 (54.81 Hz): 0.0909</title></path>
+<path d="M433.47,302.00 V280.98 Q433.47,276.98 437.47,276.98 H443.47 Q447.47,276.98 447.47,280.98 V302.00 Z" fill="#eb6834"><title>D=0,1, n=7 (54.81 Hz): 0.0736</title></path>
+<path d="M469.39,302.00 V302.00 Q469.39,302.00 469.39,302.00 H483.39 Q483.39,302.00 483.39,302.00 V302.00 Z" fill="#2a78d6"><title>D=0,5, n=8 (62.64 Hz): 0.0000</title></path>
+<path d="M487.89,302.00 V290.09 Q487.89,286.09 491.89,286.09 H497.89 Q501.89,286.09 501.89,290.09 V302.00 Z" fill="#eb6834"><title>D=0,1, n=8 (62.64 Hz): 0.0468</title></path>
+<path d="M523.81,302.00 V281.96 Q523.81,277.96 527.81,277.96 H533.81 Q537.81,277.96 537.81,281.96 V302.00 Z" fill="#2a78d6"><title>D=0,5, n=9 (70.47 Hz): 0.0707</title></path>
+<path d="M542.32,302.00 V298.55 Q542.32,294.55 546.32,294.55 H552.32 Q556.32,294.55 556.32,298.55 V302.00 Z" fill="#eb6834"><title>D=0,1, n=9 (70.47 Hz): 0.0219</title></path>
+<path d="M578.24,302.00 V302.00 Q578.24,302.00 578.24,302.00 H592.24 Q592.24,302.00 592.24,302.00 V302.00 Z" fill="#2a78d6"><title>D=0,5, n=10 (78.30 Hz): 0.0000</title></path>
+<path d="M596.74,302.00 V302.00 Q596.74,302.00 596.74,302.00 H610.74 Q610.74,302.00 610.74,302.00 V302.00 Z" fill="#eb6834"><title>D=0,1, n=10 (78.30 Hz): 0.0000</title></path>
+<path d="M632.67,302.00 V286.31 Q632.67,282.31 636.67,282.31 H642.67 Q646.67,282.31 646.67,286.31 V302.00 Z" fill="#2a78d6"><title>D=0,5, n=11 (86.13 Hz): 0.0579</title></path>
+<path d="M651.17,302.00 V299.91 Q651.17,295.91 655.17,295.91 H661.17 Q665.17,295.91 665.17,299.91 V302.00 Z" fill="#eb6834"><title>D=0,1, n=11 (86.13 Hz): 0.0179</title></path>
+<path d="M687.09,302.00 V302.00 Q687.09,302.00 687.09,302.00 H701.09 Q701.09,302.00 701.09,302.00 V302.00 Z" fill="#2a78d6"><title>D=0,5, n=12 (93.96 Hz): 0.0000</title></path>
+<path d="M705.60,302.00 V295.39 Q705.60,291.39 709.60,291.39 H715.60 Q719.60,291.39 719.60,295.39 V302.00 Z" fill="#eb6834"><title>D=0,1, n=12 (93.96 Hz): 0.0312</title></path>
+<text x="64.00" y="306.00" font-size="11" fill="#898781" text-anchor="end" font-weight="400">0,0</text>
+<text x="64.00" y="238.00" font-size="11" fill="#898781" text-anchor="end" font-weight="400">0,2</text>
+<text x="64.00" y="170.00" font-size="11" fill="#898781" text-anchor="end" font-weight="400">0,4</text>
+<text x="64.00" y="102.00" font-size="11" fill="#898781" text-anchor="end" font-weight="400">0,6</text>
+<text x="16" y="183.00" font-size="12" fill="#52514e" text-anchor="middle" transform="rotate(-90 16 183.00)">Biên độ hài (đơn vị A)</text>
+<text x="104.66" y="320.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">1</text>
+<text x="159.08" y="320.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">2</text>
+<text x="213.51" y="320.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">3</text>
+<text x="267.93" y="320.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">4</text>
+<text x="322.36" y="320.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">5</text>
+<text x="376.79" y="320.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">6</text>
+<text x="431.21" y="320.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">7</text>
+<text x="485.64" y="320.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">8</text>
+<text x="540.07" y="320.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">9</text>
+<text x="594.49" y="320.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">10</text>
+<text x="648.92" y="320.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">11</text>
+<text x="703.34" y="320.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">12</text>
+<text x="404.00" y="348.00" font-size="12" fill="#52514e" text-anchor="middle" font-weight="400">Bậc hài n (tần số n × 7,83 Hz)</text>
+<text x="95.40" y="79.56" font-size="11" fill="#0b0b0b" text-anchor="middle" font-weight="400">0,637</text>
+<text x="119.91" y="229.12" font-size="11" fill="#0b0b0b" text-anchor="start" font-weight="400">0,197</text>
+<rect x="374.00" y="46.00" width="14" height="12" rx="2" fill="#2a78d6"/>
+<text x="396.00" y="56.00" font-size="12" fill="#52514e" text-anchor="start" font-weight="400">D = 50 % (sóng vuông)</text>
+<rect x="546.60" y="46.00" width="14" height="12" rx="2" fill="#eb6834"/>
+<text x="568.60" y="56.00" font-size="12" fill="#52514e" text-anchor="start" font-weight="400">D = 10 % (xung hẹp)</text>
+</svg>

@@ -1,0 +1,932 @@
+<title>Trợ lý SR783</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Trợ lý hội thoại và đồng bộ tần số 7,83 Hz chạy trực tiếp trên điện thoại và máy tính">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: instrument console - conversation (left) beside the phase-locked session dial (right); bench tools in tabs below */
+:root {
+  --bg: #f4f6fb; --surface: #ffffff; --surface-2: #edf0f8; --fg: #121931; --fg-2: #444d6b; --muted: #6f7792;
+  --line: #d6dbe8; --accent: #2c49d1; --accent-soft: #e3e8fb; --accent-ink: #ffffff; --spark: #b86b00;
+  --good: #0a7d36; --warn: #9a5b00; --bad: #b42b2b; --needle: #2c49d1;
+  --font-display: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --r: 10px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0b0f1d; --surface: #131a2e; --surface-2: #1a2340; --fg: #e9ecf6; --fg-2: #b7bed6; --muted: #8b93ae;
+  --line: #2a3456; --accent: #8a9cff; --accent-soft: #222c55; --accent-ink: #0b0f1d; --spark: #f0b24a;
+  --good: #4cc77a; --warn: #e6a23c; --bad: #ef6b6b; --needle: #8a9cff; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0b0f1d; --surface: #131a2e; --surface-2: #1a2340; --fg: #e9ecf6; --fg-2: #b7bed6; --muted: #8b93ae;
+  --line: #2a3456; --accent: #8a9cff; --accent-soft: #222c55; --accent-ink: #0b0f1d; --spark: #f0b24a;
+  --good: #4cc77a; --warn: #e6a23c; --bad: #ef6b6b; --needle: #8a9cff; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.55 }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 18px 40px; display: grid; gap: 16px }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0 }
+h1 { font-size: 1.55rem; letter-spacing: .01em } h2 { font-size: 1.08rem } h3 { font-size: .98rem }
+.top { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between }
+.brand { display: flex; gap: 12px; align-items: center; min-width: 0 }
+.brand .tag { margin: 2px 0 0; color: var(--fg-2); font-size: .9rem }
+.mark { width: 42px; height: 42px; border-radius: 9px; background: var(--accent); display: grid; place-items: center; flex: none }
+.chips { display: flex; flex-wrap: wrap; gap: 8px }
+.chip { display: inline-flex; gap: 6px; align-items: center; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--surface); font-size: .82rem; color: var(--fg-2); font-variant-numeric: tabular-nums }
+.chip b { color: var(--fg); font-weight: 600 }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none }
+.dot.good { background: var(--good) } .dot.warn { background: var(--warn) } .dot.bad { background: var(--bad) } .dot.live { background: var(--spark) }
+.notice { margin: 0; padding: 10px 14px; border-radius: var(--r); background: var(--accent-soft); color: var(--fg); font-size: .9rem }
+.grid { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: 16px }
+@media (max-width: 880px) { .grid { grid-template-columns: minmax(0, 1fr) } }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; min-width: 0; display: grid; gap: 12px; align-content: start }
+.panel-head { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; justify-content: space-between }
+.pill { font-size: .78rem; padding: 3px 9px; border-radius: 999px; background: var(--surface-2); color: var(--fg-2); letter-spacing: .02em }
+.pill.on { background: var(--spark); color: #fff }
+.log { height: 400px; overflow-y: auto; display: grid; gap: 10px; align-content: start; padding: 4px; border: 1px solid var(--line);
+  border-radius: 8px; background: var(--bg) }
+.msg { max-width: 92%; padding: 9px 12px; border-radius: 10px; white-space: pre-wrap; overflow-wrap: anywhere }
+.msg.user { justify-self: end; background: var(--accent); color: var(--accent-ink) }
+.msg.bot { justify-self: start; background: var(--surface); border: 1px solid var(--line) }
+.msg .meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; font-size: .76rem; color: var(--muted) }
+.grade { font-family: var(--font-mono); font-size: .74rem; padding: 1px 7px; border-radius: 6px; border: 1px solid currentColor }
+.grade.A { color: var(--good) } .grade.B { color: var(--accent) } .grade.C { color: var(--warn) } .grade.D { color: var(--bad) }
+.composer { display: flex; gap: 8px; flex-wrap: wrap }
+.composer input { flex: 1 1 220px; min-width: 0 }
+.suggest { display: flex; flex-wrap: wrap; gap: 6px }
+.suggest button { font-size: .82rem; padding: 5px 10px; background: var(--surface-2); border-color: transparent }
+input, select, button { font: inherit; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px }
+input[type="range"] { padding: 0; border: 0; background: transparent; accent-color: var(--accent) }
+input[type="checkbox"] { accent-color: var(--accent); width: 16px; height: 16px; padding: 0 }
+button { cursor: pointer; font-weight: 500 }
+button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent) }
+button:disabled { opacity: .55; cursor: not-allowed }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px }
+.switches { display: flex; gap: 14px; flex-wrap: wrap; font-size: .86rem; color: var(--fg-2) }
+.switches label { display: inline-flex; gap: 6px; align-items: center }
+.dial-row { display: grid; grid-template-columns: 172px minmax(0, 1fr); gap: 14px; align-items: center }
+@media (max-width: 420px) { .dial-row { grid-template-columns: minmax(0, 1fr) } #dial { justify-self: center } }
+#dial { width: 172px; height: 172px }
+.readout { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 12px; margin: 0; font-size: .88rem }
+.readout dt { color: var(--muted) } .readout dd { margin: 0; font-family: var(--font-mono); font-variant-numeric: tabular-nums; overflow-wrap: anywhere }
+.controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 12px }
+@media (max-width: 420px) { .controls { grid-template-columns: minmax(0, 1fr) } }
+.field { display: grid; gap: 4px; min-width: 0 } .field label { font-size: .8rem; color: var(--fg-2); letter-spacing: .02em }
+.field input, .field select { width: 100%; box-sizing: border-box }
+.btn-row { display: flex; flex-wrap: wrap; gap: 8px }
+.box { border: 1px solid var(--line); border-radius: 8px; padding: 12px; display: grid; gap: 8px; background: var(--bg); min-width: 0 }
+.mono { font-family: var(--font-mono); font-size: .84rem; overflow-wrap: anywhere }
+.small { font-size: .82rem; color: var(--fg-2); margin: 0 }
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; border-bottom: 1px solid var(--line); padding-bottom: 8px }
+.tabs button[aria-selected="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent) }
+.tabpanel { display: grid; gap: 12px; min-width: 0 }
+.scroll { overflow-x: auto; min-width: 0 }
+table { border-collapse: collapse; width: 100%; font-size: .85rem; font-variant-numeric: tabular-nums }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top }
+th { color: var(--fg-2); font-weight: 600 }
+.verdict { font-weight: 700 } .verdict.good { color: var(--good) } .verdict.bad { color: var(--bad) } .verdict.warn { color: var(--warn) }
+.bits { display: flex; flex-wrap: wrap; gap: 2px; font-family: var(--font-mono); font-size: .78rem }
+.bits span { display: inline-block; min-width: 1.15em; text-align: center; border-radius: 3px; padding: 1px 0; border: 1px solid var(--line) }
+.bits .s { background: var(--surface-2) } .bits .e { background: var(--accent-soft) }
+.breath { display: flex; gap: 12px; align-items: center; flex-wrap: wrap }
+.breath-ring { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--accent); display: grid; place-items: center; flex: none }
+.breath-ring i { display: block; width: 40px; height: 40px; border-radius: 50%; background: var(--accent-soft); transform: scale(.6) }
+.breath-ring.run i { animation: breathe 10s ease-in-out infinite }
+@keyframes breathe { 0%, 100% { transform: scale(.6) } 50% { transform: scale(1.15) } }
+@media (prefers-reduced-motion: reduce) { .breath-ring.run i { animation: none } }
+footer { color: var(--muted); font-size: .8rem; display: flex; flex-wrap: wrap; gap: 8px 16px }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <div class="mark" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 28 28"><path d="M2 14 C 5 3, 9 3, 12 14 S 19 25, 22 14 S 25 6, 26 9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg></div>
+      <div><h1>SR783</h1><p class="tag">Trợ lý hội thoại và đồng bộ tần số 7,83 Hz · chạy trực tiếp trên điện thoại, máy tính bảng, máy tính</p></div>
+    </div>
+    <div class="chips" aria-label="Trạng thái">
+      <span class="chip"><span class="dot" id="chip-play-dot"></span>Tần số <b id="chip-freq">7,83 Hz</b></span>
+      <span class="chip"><span class="dot good" id="chip-sync-dot"></span>Đồng bộ <b id="chip-sync">UTC</b></span>
+      <span class="chip"><span class="dot good" id="chip-ai-dot"></span>Trợ lý <b id="chip-ai">Ngoại tuyến</b></span>
+      <span class="chip"><span class="dot good" id="chip-int-dot"></span>Toàn vẹn <b id="chip-int">OK</b></span>
+    </div>
+  </header>
+  <p class="notice" role="note">Dùng cho thư giãn, giáo dục và nghiên cứu. Không chẩn đoán, không điều trị bệnh. Ứng dụng không bao giờ nhấp nháy ở 7,83 Hz. Mọi xử lý chạy trên thiết bị của bạn.</p>
+
+  <main class="grid">
+    <section class="panel" aria-labelledby="h-chat">
+      <div class="panel-head">
+        <h2 id="h-chat">Trò chuyện</h2>
+        <div class="switches">
+          <label for="use-claude"><input type="checkbox" id="use-claude" disabled> Hỏi Claude</label>
+          <label for="use-tts"><input type="checkbox" id="use-tts"> Đọc to câu trả lời</label>
+        </div>
+      </div>
+      <div id="log" class="log" role="log" aria-live="polite"></div>
+      <form id="chat-form" class="composer" autocomplete="off">
+        <label class="sr-only" for="chat-input">Câu hỏi hoặc lệnh</label>
+        <input id="chat-input" placeholder="Hỏi về 7,83 Hz hoặc gõ: bắt đầu đẳng thời 10 phút">
+        <button type="button" id="mic" hidden>Nói</button>
+        <button type="submit" id="send" class="primary">Gửi</button>
+        <button type="button" id="stop-ai" hidden>Dừng trả lời</button>
+      </form>
+      <div class="suggest" id="suggest" aria-label="Câu hỏi gợi ý"></div>
+      <p class="small" id="ai-note">Chế độ ngoại tuyến: trả lời từ cơ sở tri thức có mức bằng chứng A–D và số tài liệu tham khảo.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="h-session">
+      <div class="panel-head"><h2 id="h-session">Phiên đồng bộ</h2><span id="play-state" class="pill">Đang dừng</span></div>
+      <div class="dial-row">
+        <svg id="dial" viewBox="0 0 200 200" role="img" aria-label="Vòng pha: một vòng bằng 30 chu kỳ 7,83 Hz">
+          <circle cx="100" cy="100" r="86" style="fill:none;stroke:var(--line)" stroke-width="10"/>
+          <g id="dial-ticks"></g>
+          <line id="needle" x1="100" y1="100" x2="100" y2="22" style="stroke:var(--needle)" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="100" cy="100" r="7" style="fill:var(--needle)"/>
+          <text x="100" y="134" text-anchor="middle" font-size="13" style="fill:var(--fg-2);font-family:var(--font-mono)" id="dial-cycles">0 / 30</text>
+        </svg>
+        <dl class="readout">
+          <dt>Tần số</dt><dd id="ro-f">7,83 Hz</dd>
+          <dt>Phân số</dt><dd id="ro-pq">783/100</dd>
+          <dt>Pha</dt><dd id="ro-phase">0,0000°</dd>
+          <dt>Chu kỳ</dt><dd id="ro-cycles">0</dd>
+          <dt>Mốc pha 0</dt><dd id="ro-epoch">0 (UTC)</dd>
+          <dt>Lệch âm thanh</dt><dd id="ro-drift">–</dd>
+        </dl>
+      </div>
+      <div class="controls">
+        <div class="field"><label for="freq">Tần số nhịp (Hz)</label><input id="freq" inputmode="decimal" value="7,83"></div>
+        <div class="field"><label for="mode">Chế độ</label>
+          <select id="mode"><option value="I">Âm đẳng thời (loa hoặc tai nghe)</option><option value="B">Nhịp phách hai tai (cần tai nghe)</option><option value="M">Nhịp phách đơn âm</option></select></div>
+        <div class="field"><label for="carrier">Âm mang (Hz)</label><input id="carrier" inputmode="decimal" value="200"></div>
+        <div class="field"><label for="minutes">Thời lượng (phút)</label><input id="minutes" type="number" min="1" max="120" value="20"></div>
+        <div class="field"><label for="volume">Âm lượng: <output id="volume-out" for="volume">30 %</output></label><input id="volume" type="range" min="0" max="50" value="30"></div>
+        <div class="field"><label for="epoch">Mốc pha 0 (ms UTC)</label><input id="epoch" inputmode="numeric" value="0"></div>
+      </div>
+      <div class="btn-row">
+        <button type="button" id="start" class="primary">Bắt đầu</button>
+        <button type="button" id="stop">Dừng</button>
+        <button type="button" id="export-wav">Xuất WAV 60 s</button>
+      </div>
+      <div class="box" aria-labelledby="h-code">
+        <h3 id="h-code">Đồng bộ nhiều thiết bị</h3>
+        <p class="small">Mọi thiết bị có đồng hồ đúng cho cùng pha. Gửi mã phiên để thiết bị khác dùng chung tần số, chế độ và mốc pha.</p>
+        <div class="btn-row"><button type="button" id="make-code">Tạo mã phiên</button><button type="button" id="copy-code">Sao chép</button></div>
+        <div class="mono" id="code-out">–</div>
+        <div class="composer"><label class="sr-only" for="join-code">Mã phiên</label><input id="join-code" placeholder="Dán mã SR783-1-…"><button type="button" id="join">Tham gia</button></div>
+        <div class="small" id="room-status">Phòng nhiều thiết bị: chưa kết nối (chỉ có khi mở trong Claude).</div>
+        <div class="scroll"><table id="peers" hidden><thead><tr><th>Thiết bị</th><th>Tần số</th><th>Lệch đồng hồ</th><th>Lệch pha</th></tr></thead><tbody></tbody></table></div>
+      </div>
+      <div class="box">
+        <h3>Dẫn nhịp thở chậm 6 lần/phút</h3>
+        <div class="breath"><div class="breath-ring" id="breath-ring" aria-hidden="true"><i></i></div>
+          <div class="small" id="breath-text">Thở chậm khoảng 0,1 Hz có bằng chứng tốt hơn cho thư giãn [37].</div>
+          <button type="button" id="breath-toggle">Bắt đầu thở</button></div>
+      </div>
+    </section>
+  </main>
+
+  <section class="panel" aria-label="Công cụ">
+    <div class="tabs" role="tablist" id="tabs">
+      <button type="button" role="tab" id="tab-sr" aria-controls="p-sr" aria-selected="true">Schumann thực đo</button>
+      <button type="button" role="tab" id="tab-verify" aria-controls="p-verify" aria-selected="false">Kiểm chứng thiết bị</button>
+      <button type="button" role="tab" id="tab-bits" aria-controls="p-bits" aria-selected="false">Soi bit</button>
+      <button type="button" role="tab" id="tab-int" aria-controls="p-int" aria-selected="false">Toàn vẹn</button>
+      <button type="button" role="tab" id="tab-about" aria-controls="p-about" aria-selected="false">An toàn và nguồn</button>
+    </div>
+
+    <div class="tabpanel" role="tabpanel" id="p-sr" aria-labelledby="tab-sr">
+      <p class="small">Đồng bộ bộ phát theo tần số mode 1 đo được thay vì con số danh nghĩa. Chấp nhận 7,0–9,0 Hz.</p>
+      <div class="controls">
+        <div class="field"><label for="sr-f">f₁ đo được (Hz)</label><input id="sr-f" inputmode="decimal" value="7,792"></div>
+        <div class="field"><label for="sr-q">Chất lượng</label><select id="sr-q"><option value="good">Tốt</option><option value="fair">Trung bình</option><option value="poor">Kém (không dùng)</option></select></div>
+      </div>
+      <div class="btn-row"><button type="button" id="sr-apply" class="primary">Đồng bộ theo giá trị này</button>
+        <label class="small" for="sr-file">Hoặc nạp CSV (time_utc,f1_hz,quality): <input type="file" id="sr-file" accept=".csv,text/csv"></label></div>
+      <div class="small" id="sr-out">–</div>
+    </div>
+
+    <div class="tabpanel" role="tabpanel" id="p-verify" aria-labelledby="tab-verify" hidden>
+      <p class="small">Đặt điện thoại sát máy phát (dưới 3 cm), ghi dữ liệu từ kế bằng ứng dụng ghi cảm biến bất kỳ, xuất CSV hai cột: thời gian (giây) và giá trị. Phân tích chạy hoàn toàn trên máy.</p>
+      <div class="btn-row"><label class="small" for="v-file">CSV cảm biến: <input type="file" id="v-file" accept=".csv,text/csv,.txt"></label>
+        <button type="button" id="v-sample">Dùng dữ liệu mẫu (máy phát 7,85 Hz)</button>
+        <button type="button" id="v-export" disabled>Xuất báo cáo CSV</button></div>
+      <div class="controls">
+        <div class="field"><label for="v-nominal">Tần số công bố (Hz)</label><input id="v-nominal" inputmode="decimal" value="7,83"></div>
+        <div class="field"><label for="v-tol">Dung sai chấp nhận (%)</label><input id="v-tol" inputmode="decimal" value="1"></div>
+      </div>
+      <div id="v-out" class="small">Chưa có dữ liệu.</div>
+      <svg id="v-chart" viewBox="0 0 640 180" role="img" aria-label="Phổ quét 6–10 Hz" hidden style="width:100%;height:auto"></svg>
+    </div>
+
+    <div class="tabpanel" role="tabpanel" id="p-bits" aria-labelledby="tab-bits" hidden>
+      <div class="composer"><label class="sr-only" for="b-in">Giá trị</label><input id="b-in" inputmode="decimal" value="7,83"><button type="button" id="b-go" class="primary">Soi bit</button></div>
+      <div id="b-out" class="tabpanel"></div>
+    </div>
+
+    <div class="tabpanel" role="tabpanel" id="p-int" aria-labelledby="tab-int" hidden>
+      <p class="small">Cài đặt lưu thành 2 từ 64 bit, mỗi từ mã hóa SECDED(72,64) kèm thẻ SHA-256. Thử lật bit để xem ứng dụng tự sửa.</p>
+      <div class="mono" id="i-cw">–</div>
+      <div class="btn-row"><button type="button" id="i-flip1">Lật 1 bit rồi nạp lại</button><button type="button" id="i-flip2">Lật 2 bit rồi nạp lại</button><button type="button" id="i-verify">Kiểm tra chuỗi băm nhật ký</button><button type="button" id="i-export">Xuất nhật ký JSON</button></div>
+      <div class="small" id="i-out">–</div>
+      <div class="scroll"><table id="i-log"><thead><tr><th>#</th><th>Sự kiện</th><th>Băm SHA-256 (16 ký tự đầu)</th></tr></thead><tbody></tbody></table></div>
+    </div>
+
+    <div class="tabpanel" role="tabpanel" id="p-about" aria-labelledby="tab-about" hidden>
+      <div class="scroll"><table><thead><tr><th>Mức</th><th>Ý nghĩa</th></tr></thead><tbody id="a-scale"></tbody></table></div>
+      <p class="small">An toàn: âm lượng tối đa 50 % (−6 dBFS), tăng giảm dần 3 giây, giới hạn 120 phút. Nhịp phách hai tai cần tai nghe. Người có tiền sử động kinh, đang dùng máy tạo nhịp tim hoặc đang mang thai nên hỏi bác sĩ. Gặp nguy hiểm tức thời: gọi 115.</p>
+      <p class="small">Nguồn: báo cáo nghiên cứu kèm theo (research/schumann-783hz/report). Ứng dụng và báo cáo do trợ lý AI soạn, đã kiểm thử tự động, cần chuyên gia thẩm định trước khi dùng chính thức.</p>
+    </div>
+  </section>
+
+  <footer><span>SR783 v1.0.0</span><span id="kb-hash">KB –</span><span id="env-note">–</span></footer>
+</div>
+
+<script type="application/json" id="sr783-kb">__KB_JSON__</script>
+<script>
+"use strict";
+(() => {
+/* ======================================================================
+   1. Bit-exact core (mirrors sr783/*.py; parity is tested)
+   ====================================================================== */
+const K256 = [0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,
+  0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,
+  0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,
+  0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,
+  0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,
+  0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,
+  0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,
+  0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];
+function sha256Bytes(msg) {
+  const h = [0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];
+  const l = msg.length, bitLen = l * 8, padLen = ((l + 9 + 63) >> 6) << 6;
+  const buf = new Uint8Array(padLen); buf.set(msg); buf[l] = 0x80;
+  const dv = new DataView(buf.buffer);
+  dv.setUint32(padLen - 8, Math.floor(bitLen / 4294967296)); dv.setUint32(padLen - 4, bitLen >>> 0);
+  const w = new Uint32Array(64);
+  for (let off = 0; off < padLen; off += 64) {
+    for (let i = 0; i < 16; i++) w[i] = dv.getUint32(off + i * 4);
+    for (let i = 16; i < 64; i++) {
+      const a = w[i - 15], b = w[i - 2];
+      const s0 = ((a >>> 7) | (a << 25)) ^ ((a >>> 18) | (a << 14)) ^ (a >>> 3);
+      const s1 = ((b >>> 17) | (b << 15)) ^ ((b >>> 19) | (b << 13)) ^ (b >>> 10);
+      w[i] = (w[i - 16] + s0 + w[i - 7] + s1) >>> 0;
+    }
+    let [a, b, c, d, e, f, g, hh] = h;
+    for (let i = 0; i < 64; i++) {
+      const S1 = ((e >>> 6) | (e << 26)) ^ ((e >>> 11) | (e << 21)) ^ ((e >>> 25) | (e << 7));
+      const ch = (e & f) ^ (~e & g);
+      const t1 = (hh + S1 + ch + K256[i] + w[i]) >>> 0;
+      const S0 = ((a >>> 2) | (a << 30)) ^ ((a >>> 13) | (a << 19)) ^ ((a >>> 22) | (a << 10));
+      const mj = (a & b) ^ (a & c) ^ (b & c);
+      const t2 = (S0 + mj) >>> 0;
+      hh = g; g = f; f = e; e = (d + t1) >>> 0; d = c; c = b; b = a; a = (t1 + t2) >>> 0;
+    }
+    h[0] = (h[0] + a) >>> 0; h[1] = (h[1] + b) >>> 0; h[2] = (h[2] + c) >>> 0; h[3] = (h[3] + d) >>> 0;
+    h[4] = (h[4] + e) >>> 0; h[5] = (h[5] + f) >>> 0; h[6] = (h[6] + g) >>> 0; h[7] = (h[7] + hh) >>> 0;
+  }
+  return h.map(x => x.toString(16).padStart(8, "0")).join("");
+}
+const sha256 = (str) => sha256Bytes(new TextEncoder().encode(str));
+
+function gcdBig(a, b) { a = a < 0n ? -a : a; b = b < 0n ? -b : b; while (b) { [a, b] = [b, a % b]; } return a; }
+function roundHalfEven(num, den) {            // num/den >= 0, BigInt
+  const q = num / den, r = num - q * den, twice = 2n * r;
+  if (twice > den) return q + 1n;
+  if (twice < den) return q;
+  return q % 2n === 0n ? q : q + 1n;
+}
+function fixed(num, den, places) {            // exact rational -> fixed decimal string (half-even)
+  const neg = (num < 0n) !== (den < 0n); num = num < 0n ? -num : num; den = den < 0n ? -den : den;
+  const scale = 10n ** BigInt(places);
+  const v = roundHalfEven(num * scale, den);
+  let s = v.toString().padStart(places + 1, "0");
+  s = places ? s.slice(0, -places) + "." + s.slice(-places) : s;
+  return (neg && v !== 0n ? "-" : "") + s;
+}
+function toRational(text) {                    // "7,83" -> {p:783n, q:100n} reduced
+  const t = String(text).trim().replace(",", ".");
+  if (!/^\d{1,4}(\.\d{1,6})?$/.test(t)) return null;
+  const [ip, fp = ""] = t.split(".");
+  let p = BigInt(ip + fp), q = 10n ** BigInt(fp.length);
+  const g = gcdBig(p, q); if (g > 1n) { p /= g; q /= g; }
+  return p === 0n ? null : { p, q };
+}
+function phaseUnits(p, q, tMs, t0Ms) {         // BigInt: ((p*(t-t0)) mod 1000q, 1000q)
+  const mod = 1000n * q; let n = (p * (BigInt(tMs) - BigInt(t0Ms))) % mod; if (n < 0n) n += mod;
+  return { num: n, mod };
+}
+function phaseDeg(p, q, tMs, t0Ms) { const u = phaseUnits(p, q, tMs, t0Ms); return fixed(u.num * 360n, u.mod, 4); }
+function phaseUnitsUs(p, q, tUs, t0Ms) {      // same rule with microseconds: ((p*(t_us - 1000*t0)) mod 10^6 q, 10^6 q)
+  const mod = 1000000n * q; let n = (p * (BigInt(tUs) - 1000n * BigInt(t0Ms))) % mod; if (n < 0n) n += mod;
+  return { num: n, mod };
+}
+// Wall clock with sub-millisecond resolution: Date.now() (the OS/NTP reference shared by all devices)
+// re-anchored on a millisecond tick and interpolated with performance.now().
+const clock = { anchor: Date.now() - performance.now(),
+  calibrate() { const start = Date.now(), limit = performance.now() + 5; let t = start;
+    while ((t = Date.now()) === start && performance.now() < limit) { /* wait for the next ms tick */ }
+    if (t !== start) this.anchor = t - performance.now(); },
+  nowMs() { return this.anchor + performance.now(); },
+  nowUs() { return BigInt(Math.round((this.anchor + performance.now()) * 1000)); } };
+clock.calibrate(); setInterval(() => clock.calibrate(), 10000);
+function wholeCycles(p, q, tMs, t0Ms) { return (p * (BigInt(tMs) - BigInt(t0Ms))) / (1000n * q); }
+
+function popcount(x) { let c = 0; while (x) { c += Number(x & 1n); x >>= 1n; } return c; }
+class Secded {
+  constructor(k) { let r = 1; while ((1 << r) < k + r + 1) r++; this.k = k; this.r = r; this.n = k + r; this.total = this.n + 1;
+    this.dataPos = []; for (let p = 1; p <= this.n; p++) if (p & (p - 1)) this.dataPos.push(p); this.hexDigits = Math.ceil(this.total / 4); }
+  encode(data) { data = BigInt(data); let cw = 0n, s = 0;
+    this.dataPos.forEach((pos, i) => { if ((data >> BigInt(i)) & 1n) { cw |= 1n << BigInt(pos); s ^= pos; } });
+    for (let j = 0; j < this.r; j++) if ((s >> j) & 1) cw |= 1n << BigInt(1 << j);
+    if (popcount(cw) & 1) cw |= 1n; return cw; }
+  decode(cw) { cw = BigInt(cw); if (cw >> BigInt(this.total)) return { status: "uncorrectable", data: null, position: null };
+    let s = 0; for (let p = 1; p <= this.n; p++) if ((cw >> BigInt(p)) & 1n) s ^= p;
+    const parity = popcount(cw) & 1; let position = null, status;
+    if (parity === 0 && s === 0) status = "ok";
+    else if (parity === 1 && s <= this.n) { position = s; cw ^= 1n << BigInt(s); status = "corrected"; }
+    else if (parity === 0) return { status: "double", data: null, position: null };
+    else return { status: "uncorrectable", data: null, position: null };
+    let data = 0n; this.dataPos.forEach((pos, i) => { if ((cw >> BigInt(pos)) & 1n) data |= 1n << BigInt(i); });
+    return { status, data, position }; }
+  hex(cw) { return BigInt(cw).toString(16).toUpperCase().padStart(this.hexDigits, "0"); }
+}
+const SECDED72 = new Secded(64), SECDED22 = new Secded(16), SECDED8 = new Secded(4);
+
+function splitmix64(seed) { let s = BigInt.asUintN(64, BigInt(seed));
+  return { next() { s = BigInt.asUintN(64, s + 0x9E3779B97F4A7C15n); let z = s;
+      z = BigInt.asUintN(64, (z ^ (z >> 30n)) * 0xBF58476D1CE4E5B9n); z = BigInt.asUintN(64, (z ^ (z >> 27n)) * 0x94D049BB133111EBn);
+      return z ^ (z >> 31n); },
+    uniform() { return Number(this.next() >> 11n) / 9007199254740992; },
+    normal() { const u1 = 1 - this.uniform(), u2 = this.uniform(); return Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2); } }; }
+
+function exactDecimal(m, e) {                 // m * 2^e as exact decimal string
+  if (e >= 0) return (m << BigInt(e)).toString();
+  const digits = (m * 5n ** BigInt(-e)).toString().padStart(-e + 1, "0");
+  const s = digits.slice(0, digits.length + e) + "." + digits.slice(digits.length + e);
+  return s.replace(/0+$/, "").replace(/\.$/, "");
+}
+function ieee(value) {
+  const dv = new DataView(new ArrayBuffer(8)); dv.setFloat32(0, value); const b32 = dv.getUint32(0);
+  dv.setFloat64(0, value); const b64 = (BigInt(dv.getUint32(0)) << 32n) | BigInt(dv.getUint32(4));
+  const e32 = (b32 >>> 23) & 0xff, m32 = BigInt((b32 & 0x7fffff) | 0x800000);
+  const e64 = Number((b64 >> 52n) & 0x7ffn), m64 = (b64 & 0xfffffffffffffn) | 0x10000000000000n;
+  return { hex32: "0x" + b32.toString(16).toUpperCase().padStart(8, "0"), bits32: b32.toString(2).padStart(32, "0"),
+    exact32: exactDecimal(m32, e32 - 127 - 23),
+    hex64: "0x" + b64.toString(16).toUpperCase().padStart(16, "0"), bits64: b64.toString(2).padStart(64, "0"),
+    exact64: exactDecimal(m64, e64 - 1023 - 52) };
+}
+function dds(p, q, fclk, nbits) {             // tuning word = round_half_even(f*2^N/fclk)
+  const two = 1n << BigInt(nbits), F = BigInt(fclk);
+  const word = roundHalfEven(p * two, q * F);
+  const outNum = word * F, outDen = two;      // f_out = word*fclk/2^N
+  const errNum = outNum * q - p * outDen, errDen = outDen * q;
+  return { bits: nbits, fclk, word, hex: "0x" + word.toString(16).toUpperCase().padStart(Math.ceil(nbits / 4), "0"),
+    fout: fixed(outNum, outDen, 15), ppm: fixed(errNum * 1000000n * q, errDen * p, 4) };
+}
+function timer1(p, q, fclk = 16000000) {
+  const pres = [[1, "001"], [8, "010"], [64, "011"], [256, "100"], [1024, "101"]]; let best = null;
+  for (const [n, cs] of pres) {
+    const N = BigInt(n), F = BigInt(fclk);
+    // ideal = fclk*q/(2N p) - 1  -> round half even of (fclk*q - 2Np)/(2Np)
+    const num = F * q - 2n * N * p, den = 2n * N * p;
+    if (num < 0n) continue;
+    const ocr = roundHalfEven(num, den);
+    if (ocr > 0xFFFFn) continue;
+    const foutNum = F, foutDen = 2n * N * (1n + ocr);
+    const errNum = foutNum * q - p * foutDen, errAbs = errNum < 0n ? -errNum : errNum;
+    const errDen = foutDen * q;
+    const cand = { prescaler: n, cs, ocr, fout: fixed(foutNum, foutDen, 9), ppm: fixed(errNum * 1000000n * q, errDen * p, 3), errAbs, errDen };
+    if (!best || cand.errAbs * best.errDen < best.errAbs * cand.errDen) best = cand;
+  }
+  if (!best) return null;
+  const tccr1b = (1 << 3) | parseInt(best.cs, 2);
+  return { prescaler: best.prescaler, ocr: Number(best.ocr), ocrHex: "0x" + best.ocr.toString(16).toUpperCase().padStart(4, "0"),
+    fout: best.fout, ppm: best.ppm, TCCR1A: "0x40", TCCR1B: "0x" + tccr1b.toString(16).toUpperCase().padStart(2, "0") };
+}
+function canonicalJson(entry) {
+  const keys = Object.keys(entry).sort();
+  return "{" + keys.map(k => { const v = entry[k];
+    if (typeof v === "string") return JSON.stringify(k) + ":" + JSON.stringify(v);
+    if (Number.isInteger(v)) return JSON.stringify(k) + ":" + String(v);
+    throw new TypeError("strings and integers only"); }).join(",") + "}";
+}
+const GENESIS = "0".repeat(64);
+const chainNext = (prev, entry) => sha256(prev + "\n" + canonicalJson(entry));
+function syncCode(p, q, t0, mode) { const body = `SR783-1-${p}-${q}-${t0}-${mode}`; return body + "-" + sha256(body).slice(0, 8).toUpperCase(); }
+function parseSyncCode(code) {
+  const m = /^SR783-1-(\d{1,9})-(\d{1,9})-(\d{1,15})-([IBM])-([0-9A-F]{8})$/i.exec(String(code).trim());
+  if (!m) return { ok: false, reason: "Sai định dạng mã" };
+  const body = `SR783-1-${m[1]}-${m[2]}-${m[3]}-${m[4].toUpperCase()}`;
+  if (sha256(body).slice(0, 8).toUpperCase() !== m[5].toUpperCase()) return { ok: false, reason: "Sai mã kiểm tra SHA-256: mã bị gõ nhầm hoặc bị sửa" };
+  const p = BigInt(m[1]), q = BigInt(m[2]);
+  if (q === 0n || p === 0n) return { ok: false, reason: "Tần số không hợp lệ" };
+  return { ok: true, p, q, t0: m[3], mode: m[4].toUpperCase(), check: m[5].toUpperCase() };
+}
+const MODE_CODE = { I: 1, B: 2, M: 3 }, CODE_MODE = { 1: "I", 2: "B", 3: "M" };
+function packSettings(s) {
+  const w0 = (BigInt(s.p) << 32n) | BigInt(s.q);
+  const w1 = (BigInt(s.carrierCenti) << 40n) | (BigInt(s.volume) << 32n) | (BigInt(MODE_CODE[s.mode]) << 28n) |
+             (BigInt(s.minutes) << 20n) | (BigInt(s.flags) << 12n);
+  const cw = [SECDED72.hex(SECDED72.encode(w0)), SECDED72.hex(SECDED72.encode(w1))];
+  return { v: 1, cw, tag: sha256(cw.join("")).slice(0, 16) };
+}
+function unpackSettings(rec) {
+  const report = []; const words = [];
+  for (const h of rec.cw) { const d = SECDED72.decode(BigInt("0x" + h)); report.push(d); if (d.data === null) return { ok: false, report }; words.push(d.data); }
+  const fixedCw = words.map(w => SECDED72.hex(SECDED72.encode(w)));
+  if (sha256(fixedCw.join("")).slice(0, 16) !== rec.tag) return { ok: false, report, tagMismatch: true };
+  const [w0, w1] = words;
+  const s = { p: w0 >> 32n, q: w0 & 0xFFFFFFFFn, carrierCenti: Number(w1 >> 40n), volume: Number((w1 >> 32n) & 0xFFn),
+    mode: CODE_MODE[Number((w1 >> 28n) & 0xFn)] || "I", minutes: Number((w1 >> 20n) & 0xFFn), flags: Number((w1 >> 12n) & 0xFFn) };
+  return { ok: true, report, settings: s, corrected: report.some(r => r.status === "corrected"), fixedCw };
+}
+function estimateFrequency(ts, xs, fLo = 6, fHi = 10) {
+  const n = ts.length; const t0 = ts[0], T = ts[n - 1] - t0; if (n < 32 || !(T > 1)) return null;
+  // linear detrend
+  let st = 0, sx = 0, stt = 0, stx = 0; for (let i = 0; i < n; i++) { const t = ts[i] - t0; st += t; sx += xs[i]; stt += t * t; stx += t * xs[i]; }
+  const slope = (n * stx - st * sx) / (n * stt - st * st), icp = (sx - slope * st) / n;
+  const y = new Float64Array(n), w = new Float64Array(n);
+  for (let i = 0; i < n; i++) { const t = ts[i] - t0; y[i] = xs[i] - (icp + slope * t); w[i] = 0.5 - 0.5 * Math.cos(2 * Math.PI * t / T); }
+  const power = (f) => { let re = 0, im = 0; const k = 2 * Math.PI * f; for (let i = 0; i < n; i++) { const a = k * (ts[i] - t0), v = y[i] * w[i]; re += v * Math.cos(a); im -= v * Math.sin(a); } return re * re + im * im; };
+  const coarse = []; for (let f = fLo; f <= fHi + 1e-9; f += 0.01) coarse.push([f, power(f)]);
+  let bi = 0; coarse.forEach((c, i) => { if (c[1] > coarse[bi][1]) bi = i; });
+  let best = coarse[bi][0], bestP = coarse[bi][1];
+  for (let f = coarse[bi][0] - 0.02; f <= coarse[bi][0] + 0.02 + 1e-12; f += 0.0005) { const pw = power(f); if (pw > bestP) { bestP = pw; best = f; } }
+  const h = 0.0005, pm = Math.log(power(best - h)), p0 = Math.log(bestP), pp = Math.log(power(best + h));
+  const denom = pm - 2 * p0 + pp; const delta = denom < 0 ? 0.5 * (pm - pp) / denom * h : 0;
+  const fEst = best + delta;
+  const rest = coarse.filter(c => Math.abs(c[0] - fEst) > 0.15).map(c => c[1]).sort((a, b) => a - b);
+  const med = rest[Math.floor(rest.length / 2)] || 1e-300;
+  return { f: fEst, snrDb: 10 * Math.log10(bestP / med), n, duration: T, fs: (n - 1) / T, spectrum: coarse };
+}
+function sampleSensorCsv(seed = 785, fTrue = 7.85) {
+  const g = splitmix64(seed); const rows = ["time_s,field_uT"]; let t = 0;
+  while (t < 30) { const v = 45 + 2.0 * Math.sin(2 * Math.PI * fTrue * t) + 0.3 * g.normal();
+    rows.push(t.toFixed(4) + "," + (Math.round(v / 0.15) * 0.15).toFixed(2)); t += 0.01 + (g.uniform() - 0.5) * 0.004; }
+  return rows.join("\n");
+}
+function parseCsvNumbers(text) {
+  const ts = [], xs = []; let unitMs = false;
+  for (const line of String(text).split(/\r?\n/)) { const parts = line.split(/[,;\t]/).map(s => s.trim()); if (parts.length < 2) continue;
+    const t = Number(parts[0]), x = Number(parts[1]); if (!Number.isFinite(t) || !Number.isFinite(x)) { if (/ms/i.test(parts[0])) unitMs = true; continue; }
+    ts.push(t); xs.push(x); }
+  if (ts.length && (unitMs || ts[ts.length - 1] - ts[0] > 5000)) for (let i = 0; i < ts.length; i++) ts[i] /= 1000;
+  return { ts, xs };
+}
+// WAV (integer phase, same rule as sr783/wav.py) and a stored ZIP container
+function synthWav(p, q, mode, seconds, fs = 48000, carrier = 200, amplitude = 0.3, fade = 3) {
+  const total = Math.round(seconds * fs), fadeN = Math.max(1, Math.round(fade * fs));
+  const P = Number(p), Q = Number(q), C = Math.round(carrier); const up = { num: C * Q + P, den: Q };
+  const pcm = new Int16Array(total * 2), tau = 2 * Math.PI;
+  const ph = (num, den, n) => ((num * n) % (den * fs)) / (den * fs);
+  const q16 = (x) => Math.max(-32768, Math.min(32767, Math.floor(x * 32767 + 0.5)));
+  for (let n = 0; n < total; n++) {
+    const g = amplitude * Math.min(1, n / fadeN, (total - 1 - n) / fadeN); let L, R;
+    if (mode === "I") { const env = 0.5 - 0.5 * Math.cos(tau * ph(P, Q, n)); L = R = g * env * Math.sin(tau * ph(C, 1, n)); }
+    else if (mode === "B") { L = g * Math.sin(tau * ph(C, 1, n)); R = g * Math.sin(tau * ph(up.num, up.den, n)); }
+    else { L = R = 0.5 * g * (Math.sin(tau * ph(C, 1, n)) + Math.sin(tau * ph(up.num, up.den, n))); }
+    pcm[2 * n] = q16(L); pcm[2 * n + 1] = q16(R);
+  }
+  const data = new Uint8Array(pcm.buffer), hdr = new DataView(new ArrayBuffer(44));
+  const str = (o, s) => { for (let i = 0; i < 4; i++) hdr.setUint8(o + i, s.charCodeAt(i)); };
+  str(0, "RIFF"); hdr.setUint32(4, 36 + data.length, true); str(8, "WAVE"); str(12, "fmt "); hdr.setUint32(16, 16, true);
+  hdr.setUint16(20, 1, true); hdr.setUint16(22, 2, true); hdr.setUint32(24, fs, true); hdr.setUint32(28, fs * 4, true);
+  hdr.setUint16(32, 4, true); hdr.setUint16(34, 16, true); str(36, "data"); hdr.setUint32(40, data.length, true);
+  const out = new Uint8Array(44 + data.length); out.set(new Uint8Array(hdr.buffer), 0); out.set(data, 44); return out;
+}
+const CRC_TABLE = (() => { const t = new Uint32Array(256); for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+function crc32(b) { let c = 0xFFFFFFFF; for (let i = 0; i < b.length; i++) c = CRC_TABLE[(c ^ b[i]) & 0xFF] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; }
+function zipStore(name, bytes) {
+  const nm = new TextEncoder().encode(name), crc = crc32(bytes);
+  const lh = new DataView(new ArrayBuffer(30)); lh.setUint32(0, 0x04034b50, true); lh.setUint16(4, 20, true); lh.setUint32(14, crc, true);
+  lh.setUint32(18, bytes.length, true); lh.setUint32(22, bytes.length, true); lh.setUint16(26, nm.length, true);
+  const cd = new DataView(new ArrayBuffer(46)); cd.setUint32(0, 0x02014b50, true); cd.setUint16(4, 20, true); cd.setUint16(6, 20, true);
+  cd.setUint32(16, crc, true); cd.setUint32(20, bytes.length, true); cd.setUint32(24, bytes.length, true); cd.setUint16(28, nm.length, true);
+  const off = 30 + nm.length + bytes.length, cdLen = 46 + nm.length;
+  const end = new DataView(new ArrayBuffer(22)); end.setUint32(0, 0x06054b50, true); end.setUint16(8, 1, true); end.setUint16(10, 1, true);
+  end.setUint32(12, cdLen, true); end.setUint32(16, off, true);
+  const out = new Uint8Array(off + cdLen + 22); let o = 0;
+  for (const part of [new Uint8Array(lh.buffer), nm, bytes, new Uint8Array(cd.buffer), nm, new Uint8Array(end.buffer)]) { out.set(part, o); o += part.length; }
+  return out;
+}
+const core = { sha256, toRational, phaseUnits, phaseUnitsUs, phaseDeg, wholeCycles, Secded, SECDED72, SECDED22, SECDED8, splitmix64, ieee, dds,
+  timer1, canonicalJson, chainNext, GENESIS, syncCode, parseSyncCode, packSettings, unpackSettings, estimateFrequency,
+  sampleSensorCsv, parseCsvNumbers, synthWav, crc32, zipStore, fixed };
+
+/* ======================================================================
+   2. State, storage (SECDED + SHA-256) and hash-chained log
+   ====================================================================== */
+const $ = (id) => document.getElementById(id);
+const vn = (x, d) => Number(x).toFixed(d).replace(".", ",");
+const fmtF = (p, q) => fixed(BigInt(p), BigInt(q), 4).replace(/0+$/, "").replace(/\.$/, "").replace(".", ",");
+const KB = JSON.parse($("sr783-kb").textContent);
+const DEFAULTS = { p: 783n, q: 100n, carrierCenti: 20000, volume: 30, mode: "I", minutes: 20, flags: 0 };
+const state = { ...DEFAULTS, t0: "0", playing: false, log: [], lastHash: GENESIS, room: null, named: null, peers: new Map(), verify: null };
+const STORE_KEY = "sr783.settings.v1";
+const mem = {};
+function storeGet(k) { try { return localStorage.getItem(k); } catch (e) { return mem[k] ?? null; } }
+function storeSet(k, v) { try { localStorage.setItem(k, v); } catch (e) { mem[k] = v; } }
+function saveSettings() { storeSet(STORE_KEY, JSON.stringify(packSettings(state))); renderIntegrity(); }
+function loadSettings(note) {
+  const raw = storeGet(STORE_KEY); if (!raw) { saveSettings(); return { status: "new" }; }
+  let rec; try { rec = JSON.parse(raw); } catch (e) { rec = null; }
+  let res = rec && Array.isArray(rec.cw) ? unpackSettings(rec) : { ok: false };
+  if (res.ok) { const st = res.settings, f = Number(st.p) / Number(st.q || 1n);
+    if (st.q === 0n || !(f >= 1 && f <= 40) || st.volume > 50 || st.minutes < 1 || st.minutes > 120) res = { ok: false, report: res.report }; }
+  if (!res.ok) { Object.assign(state, DEFAULTS); saveSettings(); setChip("int", "Đã khôi phục", "warn");
+    logEvent("restore_defaults"); return { status: "restored", report: res.report || [] }; }
+  Object.assign(state, res.settings);
+  if (res.corrected) { const pos = res.report.filter(r => r.status === "corrected").map(r => r.position);
+    storeSet(STORE_KEY, JSON.stringify({ v: 1, cw: res.fixedCw, tag: rec.tag })); setChip("int", "Đã tự sửa", "good");
+    logEvent("secded_corrected"); return { status: "corrected", positions: pos }; }
+  setChip("int", "OK", "good"); return { status: "ok" };
+}
+function logEvent(event) {
+  const entry = { event, p: Number(state.p), q: Number(state.q), t_ms: Date.now(), mode: state.mode };
+  const hash = chainNext(state.lastHash, entry); state.log.push({ entry, hash }); state.lastHash = hash; renderLog();
+}
+function verifyChain() { let prev = GENESIS; for (const { entry, hash } of state.log) { if (chainNext(prev, entry) !== hash) return false; prev = hash; } return true; }
+
+/* ======================================================================
+   3. Audio engine: oscillators started at a phase-zero UTC instant
+   ====================================================================== */
+const audio = {
+  ctx: null, nodes: [], oscs: [], master: null, startUtc: 0, startCtx: 0, corrMs: 0, stopTimer: null, driftTimer: null,
+  unlock() { const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return false;
+    if (!this.ctx) this.ctx = new AC(); if (this.ctx.state === "suspended") this.ctx.resume(); return true; },
+  utcToCtx(utc) { const ts = this.ctx.getOutputTimestamp ? this.ctx.getOutputTimestamp() : null;
+    const ctxNow = ts && ts.contextTime ? ts.contextTime : this.ctx.currentTime;
+    const perfNow = ts && ts.performanceTime ? ts.performanceTime : performance.now();
+    const skew = clock.nowMs() - (performance.timeOrigin + performance.now());  // keep the calibrated OS clock as the UTC reference
+    return ctxNow + (utc - (performance.timeOrigin + perfNow + skew)) / 1000; },
+  nextZero(p, q, t0, after) { const period = 1000 * Number(q) / Number(p); return Number(t0) + Math.ceil((after - Number(t0)) / period) * period; },
+  start() {
+    if (!this.unlock()) { say("Trình duyệt này không hỗ trợ âm thanh Web Audio.", "A"); return false; }
+    this.stop(true);
+    const ctx = this.ctx, f = Number(state.p) / Number(state.q), car = state.carrierCenti / 100;
+    const vol = Math.min(0.5, state.volume / 100);
+    const utc = this.nextZero(state.p, state.q, state.t0, clock.nowMs() + 250);
+    const when = Math.max(ctx.currentTime + 0.05, this.utcToCtx(utc));
+    const master = ctx.createGain(); master.gain.setValueAtTime(0, when); master.gain.linearRampToValueAtTime(vol, when + 3);
+    master.connect(ctx.destination); const nodes = [];
+    const oscs = []; const osc = (freq, wave) => { const o = ctx.createOscillator(); if (wave) o.setPeriodicWave(wave); else o.type = "sine"; o.frequency.value = freq; o.start(when); nodes.push(o); oscs.push([o, freq]); return o; };
+    if (state.mode === "I") {
+      const g = ctx.createGain(); g.gain.value = 0; osc(car).connect(g);
+      const negCos = ctx.createPeriodicWave(new Float32Array([0, -1]), new Float32Array([0, 0]), { disableNormalization: true });
+      const lfoGain = ctx.createGain(); lfoGain.gain.value = 0.5; osc(f, negCos).connect(lfoGain); lfoGain.connect(g.gain);
+      const dc = ctx.createConstantSource(); dc.offset.value = 0.5; dc.connect(g.gain); dc.start(when); nodes.push(dc);
+      g.connect(master);
+    } else if (state.mode === "B") {
+      const merger = ctx.createChannelMerger(2); osc(car).connect(merger, 0, 0); osc(car + f).connect(merger, 0, 1); merger.connect(master);
+    } else { const g = ctx.createGain(); g.gain.value = 0.5; osc(car).connect(g); osc(car + f).connect(g); g.connect(master); }
+    this.nodes = nodes; this.oscs = oscs; this.master = master; this.startUtc = utc; this.startCtx = when; this.corrMs = 0;
+    clearTimeout(this.stopTimer); this.stopTimer = setTimeout(() => stopSession("hết thời lượng"), state.minutes * 60000);
+    clearInterval(this.driftTimer); this.driftTimer = setInterval(() => this.checkDrift(), 5000);
+    return true;
+  },
+  checkDrift() { if (!this.ctx || !this.nodes.length) return;
+    // clock drift between the audio clock and UTC, minus what has already been slewed out
+    const drift = (this.ctx.currentTime - this.startCtx) * 1000 - (clock.nowMs() - this.startUtc) - this.corrMs;
+    const f = Number(state.p) / Number(state.q);
+    $("ro-drift").textContent = (drift >= 0 ? "+" : "") + vn(drift, 1) + " ms (" + vn(360 * f * drift / 1000, 1) + "°), đã bù " + vn(this.corrMs, 1) + " ms";
+    if (Math.abs(drift) > 2 && state.playing) {           // time-warp every oscillator for 4 s to remove the phase error smoothly
+      const t = this.ctx.currentTime, T = 4, k = 1 - (drift / 1000) / T;
+      this.oscs.forEach(([o, fr]) => { o.frequency.setValueAtTime(fr * k, t); o.frequency.setValueAtTime(fr, t + T); });
+      this.corrMs += drift; logEvent("slew_phase"); } },
+  stop(immediate) { clearTimeout(this.stopTimer); clearInterval(this.driftTimer);
+    if (!this.ctx || !this.master) return; const t = this.ctx.currentTime, m = this.master, nodes = this.nodes;
+    m.gain.cancelScheduledValues(t); m.gain.setValueAtTime(m.gain.value, t); m.gain.linearRampToValueAtTime(0, t + (immediate ? 0.05 : 1));
+    nodes.forEach(n => { try { n.stop(t + (immediate ? 0.06 : 1.05)); } catch (e) {} }); this.nodes = []; this.oscs = []; this.master = null; },
+};
+
+/* ======================================================================
+   4. Assistant: offline knowledge base + optional Claude with page tools
+   ====================================================================== */
+const norm = (s) => String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/[^a-z0-9]+/g, " ").trim();
+const lite = (s) => String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d");
+const has = (padded, phrases) => phrases.some(k => padded.includes(" " + k + " "));
+function matchIntent(text) {
+  const padded = " " + norm(text) + " "; let best = null, bestScore = 0;
+  for (const it of KB.intents) { let score = 0; for (const kw of it.keywords) if (padded.includes(" " + norm(kw) + " ")) score += norm(kw).split(" ").length;
+    if (score > bestScore) { best = it; bestScore = score; } }
+  if (!best && KB.generic && KB.generic.keywords.some(k => padded.includes(" " + norm(k) + " "))) best = KB.intents.find(i => i.id === KB.generic.intent) || null;
+  return best;
+}
+function parseCommand(text) {
+  const n = norm(text), padded = " " + n + " ", l = lite(text);
+  if (has(padded, KB.safety.crisis_terms)) return { type: "crisis" };
+  if (["dung", "tat", "ngung", "stop"].includes(n) || has(padded, ["dung lai", "dung phat", "dung phien", "tat am", "tat phat", "ngung phat", "ngung lai"])) return { type: "stop" };
+  if (has(padded, ["bat dau", "bat phien", "khoi dong", "start", "phat nhip", "phat am"])) {
+    const mode = has(padded, ["hai tai", "binaural"]) ? "B" : has(padded, ["don am", "monaural"]) ? "M" : has(padded, ["dang thoi", "isochronic"]) ? "I" : null;
+    const mm = /(\d{1,3})\s*phut/.exec(l); return { type: "start", mode, minutes: mm ? Number(mm[1]) : null }; }
+  const fm = /(?:^|\s)(?:dat |chinh |doi |chuyen )?tan so\s*(?:ve |la |thanh |= ?)?(\d{1,2}(?:[.,]\d{1,4})?)(?:\s*hz)?\s*[.!]?\s*$/.exec(l.trim());
+  if (fm) return { type: "freq", value: fm[1] };
+  const vm = /am luong\s*(\d{1,3})/.exec(l); if (vm) return { type: "volume", value: Number(vm[1]) };
+  const code = /SR783-1-\d+-\d+-\d+-[IBM]-[0-9A-F]{8}/i.exec(text); if (code) return { type: "join", code: code[0] };
+  if (has(padded, ["ma phien", "tao ma"])) return { type: "code" };
+  if (has(padded, ["trang thai"])) return { type: "status" };
+  if (has(padded, ["soi bit"])) return { type: "tab", tab: "bits" };
+  if (has(padded, KB.safety.medical_terms)) return { type: "medical" };
+  return null;
+}
+const TAB_FOR = { phone_verify: "verify", sr_sync: "sr", bits: "bits", integrity: "int", law_vn: "about", icnirp: "about", flicker: "about" };
+function statusText() {
+  return `Tần số ${fmtF(state.p, state.q)} Hz (${state.p}/${state.q}), chế độ ${modeName(state.mode)}, âm mang ${vn(state.carrierCenti / 100, 2)} Hz, ` +
+    `âm lượng ${state.volume} %, thời lượng ${state.minutes} phút, ${state.playing ? "đang phát" : "đang dừng"}, pha hiện tại ${(() => { const u = phaseUnitsUs(state.p, state.q, clock.nowUs(), state.t0); return fixed(u.num * 360n, u.mod, 2).replace(".", ","); })()}°.`;
+}
+const modeName = (m) => ({ I: "âm đẳng thời", B: "nhịp phách hai tai", M: "nhịp phách đơn âm" })[m];
+function applyFrequency(text, source) {
+  const r = toRational(text); if (!r) return "Không đọc được tần số. Ví dụ hợp lệ: 7,83 hoặc 7.792.";
+  const f = Number(r.p) / Number(r.q); if (!(f >= 1 && f <= 40)) return "Tần số nhịp phải trong khoảng 1–40 Hz.";
+  state.p = r.p; state.q = r.q; $("freq").value = fmtF(r.p, r.q); saveSettings(); logEvent("set_frequency"); renderStatic();
+  if (state.playing) audio.start();
+  return `Đã đặt tần số ${fmtF(r.p, r.q)} Hz = ${r.p}/${r.q}${source ? " (" + source + ")" : ""}.`;
+}
+function runCommand(cmd) {
+  switch (cmd.type) {
+    case "crisis": return { text: KB.safety.crisis_reply, grade: null };
+    case "medical": return { text: KB.safety.medical_reply, grade: "C", refs: [34, 38, 39, 47] };
+    case "stop": stopSession("theo yêu cầu"); return { text: "Đã dừng phiên, âm lượng giảm dần trong 1 giây.", grade: null };
+    case "start": if (cmd.mode) { state.mode = cmd.mode; $("mode").value = cmd.mode; }
+      if (cmd.minutes) { state.minutes = Math.max(1, Math.min(120, cmd.minutes)); $("minutes").value = state.minutes; }
+      saveSettings(); startSession(); return { text: state.playing ? `Bắt đầu ${modeName(state.mode)} ${fmtF(state.p, state.q)} Hz trong ${state.minutes} phút, khóa pha theo UTC.` + (state.mode === "B" ? " Hãy đeo tai nghe." : "") : "Chưa bắt đầu được âm thanh trên trình duyệt này.", grade: null };
+    case "freq": return { text: applyFrequency(cmd.value), grade: null };
+    case "volume": state.volume = Math.max(0, Math.min(50, cmd.value)); $("volume").value = state.volume; renderVolume(); saveSettings();
+      return { text: `Âm lượng ${state.volume} %` + (cmd.value > 50 ? " (đã giới hạn ở 50 % để bảo vệ thính giác)." : "."), grade: null };
+    case "code": return { text: "Mã phiên: " + makeCode() + "\nGửi mã này cho thiết bị khác rồi bấm Tham gia.", grade: null };
+    case "join": return { text: joinCode(cmd.code), grade: null };
+    case "status": return { text: statusText(), grade: null };
+    case "tab": selectTab(cmd.tab); return { text: "Đã mở mục Soi bit.", grade: null };
+  }
+  return null;
+}
+function offlineAnswer(text) {
+  const cmd = parseCommand(text); if (cmd) return runCommand(cmd);
+  const it = matchIntent(text); if (!it) return { text: KB.fallback, grade: null };
+  return { text: it.answer, grade: it.grade, refs: it.refs, tab: TAB_FOR[it.id], intent: it.id };
+}
+let sample = null, sampleTools = false, aiCtl = null; const turns = [];
+function rulesPrompt() {
+  const facts = KB.intents.map(i => `- (${i.grade}) ${i.answer}`).join("\n");
+  return "Bạn là trợ lý của ứng dụng SR783 (đồng bộ tần số 7,83 Hz). Trả lời bằng tiếng Việt, tối đa 120 từ, giọng rõ ràng.\n" +
+    "Quy tắc: chỉ dựa trên dữ kiện dưới đây; ghi mức bằng chứng [A-D] và số tài liệu [n] khi dùng; không đưa lời khuyên chẩn đoán/điều trị; " +
+    "không hứa hẹn lợi ích sức khỏe; nhắc an toàn nhấp nháy và âm lượng khi liên quan; nếu người dùng muốn điều khiển ứng dụng thì gọi công cụ.\n" +
+    "Thang bằng chứng: " + JSON.stringify(KB.evidence_scale) + "\nDữ kiện:\n" + facts + "\nTrạng thái ứng dụng: " + statusText();
+}
+const TOOLS = [
+  { name: "get_status", description: "Trả về trạng thái phiên hiện tại (tần số, chế độ, âm lượng, đang phát hay không).", execute: () => statusText() },
+  { name: "set_frequency", description: "Đặt tần số nhịp (Hz, 1-40). Trả về kết quả.", inputSchema: { type: "object", properties: { hz: { type: "string", description: "ví dụ 7.83" } }, required: ["hz"] },
+    execute: (a) => applyFrequency(String(a.hz), "Claude") },
+  { name: "start_session", description: "Bắt đầu phát nhịp. mode: I (đẳng thời), B (hai tai), M (đơn âm); minutes 1-120.", inputSchema: { type: "object", properties: { mode: { type: "string" }, minutes: { type: "number" } } },
+    execute: (a) => runCommand({ type: "start", mode: ["I", "B", "M"].includes(String(a.mode)) ? String(a.mode) : null, minutes: a.minutes ? Number(a.minutes) : null }).text },
+  { name: "stop_session", description: "Dừng phát nhịp.", execute: () => runCommand({ type: "stop" }).text },
+  { name: "set_volume", description: "Đặt âm lượng 0-50 phần trăm.", inputSchema: { type: "object", properties: { percent: { type: "number" } }, required: ["percent"] },
+    execute: (a) => runCommand({ type: "volume", value: Number(a.percent) || 0 }).text },
+  { name: "make_session_code", description: "Tạo mã phiên để đồng bộ thiết bị khác.", execute: () => makeCode() },
+];
+async function claudeAnswer(text, bubble) {
+  aiCtl = new AbortController(); $("stop-ai").hidden = false; bubble.querySelector(".body").textContent = "Đang suy nghĩ…";
+  turns.push({ role: "user", content: text }); while (turns.length > 12) turns.shift();
+  const input = [{ role: "user", content: rulesPrompt() }, ...turns];
+  const opts = { cache: false, signal: aiCtl.signal, modelTier: "quick", onText: ({ text: t }) => { bubble.querySelector(".body").textContent = t; scrollLog(); } };
+  if (sampleTools) opts.tools = TOOLS;
+  try { const res = await sample(input, opts); turns.push({ role: "assistant", content: res.text }); bubble.querySelector(".body").textContent = res.text;
+    if (res.truncated) addMeta(bubble, "Câu trả lời bị cắt ngắn"); addMeta(bubble, "Claude"); speak(res.text);
+  } catch (e) { const code = e && e.code;
+    if (e && e.text) bubble.querySelector(".body").textContent = e.text;
+    if (code === "not_granted" || code === "sampling_disabled" || code === "not_declared" || code === "capability_disabled" || code === "capability_removed") {
+      sample = null; $("use-claude").checked = false; $("use-claude").disabled = true; setChip("ai", "Ngoại tuyến", "good");
+      const off = offlineAnswer(text); bubble.querySelector(".body").textContent = off.text; addMeta(bubble, "Claude không khả dụng, đã trả lời ngoại tuyến");
+    } else if (code === "cancelled") { addMeta(bubble, "Đã dừng"); }
+    else if (code === "rate_limited") { addMeta(bubble, "Claude đang bận hoặc hết hạn mức, thử lại sau"); }
+    else { addMeta(bubble, "Lỗi kết nối, bạn có thể gửi lại"); }
+  } finally { $("stop-ai").hidden = true; aiCtl = null; }
+}
+
+/* ======================================================================
+   5. Session control, sync codes, room peers
+   ====================================================================== */
+function startSession() { if (audio.start()) { state.playing = true; logEvent("start"); } renderStatic(); }
+function stopSession(why) { audio.stop(false); if (state.playing) logEvent("stop"); state.playing = false; renderStatic(); }
+function makeCode() { if (state.t0 === "0") { state.t0 = String(Math.floor(Date.now() / 1000) * 1000); $("epoch").value = state.t0; }
+  const c = syncCode(state.p, state.q, state.t0, state.mode); $("code-out").textContent = c; joinRoom(c); return c; }
+function joinCode(code) { const r = parseSyncCode(code); if (!r.ok) return "Không tham gia được: " + r.reason + ".";
+  state.p = r.p; state.q = r.q; state.t0 = r.t0; state.mode = r.mode; $("freq").value = fmtF(r.p, r.q); $("mode").value = r.mode; $("epoch").value = r.t0;
+  saveSettings(); logEvent("join_code"); renderStatic(); if (state.playing) audio.start(); joinRoom(code);
+  return `Đã tham gia phiên ${fmtF(r.p, r.q)} Hz, ${modeName(r.mode)}, mốc pha ${r.t0}. Thiết bị này giờ khớp pha với các thiết bị cùng mã.`; }
+async function joinRoom(code) {
+  if (!state.room) return; const check = code.slice(-8).toLowerCase();
+  try { if (state.named) await state.named.leave(); state.named = await state.room.join("sr783-" + check);
+    const r = state.named; $("room-status").textContent = "Phòng nhiều thiết bị: đã vào phòng sr783-" + check + ".";
+    r.onPeers((ch) => { renderPeers(ch.peers); });
+    r.on("ping", (m) => { if (m.sameTab) return; const t2 = Date.now(); r.emit("pong", { id: m.data && m.data.id, to: m.peer, t1: m.data && m.data.t1, t2, t3: Date.now() }).catch(() => {}); });
+    r.on("pong", (m) => { const d = m.data || {}; if (m.sameTab || d.to !== state.myPeer) return; const t4 = Date.now();
+      const offset = ((d.t2 - d.t1) + (d.t3 - t4)) / 2, delay = (t4 - d.t1) - (d.t3 - d.t2);
+      const prev = state.peers.get(m.peer); if (!prev || delay < prev.delay) state.peers.set(m.peer, { offset, delay }); renderPeers(r.peers()); });
+    r.presence({ p: String(state.p), q: String(state.q), t0: state.t0, mode: state.mode, playing: state.playing });
+    const me = r.peers().find(x => x.sameTab); if (me) state.myPeer = me.peer;
+    clearInterval(state.pingTimer); state.pingTimer = setInterval(() => { const me2 = r.peers().find(x => x.sameTab); if (me2) state.myPeer = me2.peer;
+      if (r.peers().length > 1) r.emit("ping", { id: Math.random().toString(36).slice(2, 8), t1: Date.now() }).catch(() => {}); }, 5000);
+  } catch (e) { $("room-status").textContent = "Phòng nhiều thiết bị: không vào được (" + (e && e.code || "lỗi") + "). Đồng bộ UTC vẫn hoạt động."; }
+}
+function renderPeers(peers) {
+  const tb = $("peers").querySelector("tbody"); tb.textContent = ""; $("peers").hidden = !peers || peers.length < 1;
+  (peers || []).forEach((pr) => { const tr = document.createElement("tr"); const ps = pr.presence || {}; const est = state.peers.get(pr.peer);
+    const f = ps.p && ps.q ? fmtF(BigInt(ps.p), BigInt(ps.q)) + " Hz" : "–";
+    const off = pr.sameTab ? "0 ms" : est ? vn(est.offset, 1) + " ms" : "đang đo…";
+    const deg = pr.sameTab ? "0°" : est ? vn(360 * Number(state.p) / Number(state.q) * est.offset / 1000, 1) + "°" : "–";
+    [pr.sameTab ? "Thiết bị này" : (pr.guest ? "Khách " : "Thiết bị ") + pr.peer.slice(0, 4), f, off, deg].forEach(t => { const td = document.createElement("td"); td.textContent = t; tr.appendChild(td); });
+    tb.appendChild(tr); });
+  setChip("sync", peers && peers.length > 1 ? peers.length + " thiết bị" : "UTC", "good");
+}
+
+/* ======================================================================
+   6. Rendering
+   ====================================================================== */
+function setChip(which, text, tone) { $("chip-" + which).textContent = text; $("chip-" + which + "-dot").className = "dot " + (tone || ""); }
+function renderVolume() { $("volume-out").textContent = state.volume + " %"; }
+function renderStatic() {
+  $("ro-f").textContent = fmtF(state.p, state.q) + " Hz"; $("ro-pq").textContent = state.p + "/" + state.q; $("ro-epoch").textContent = state.t0 + " (UTC)";
+  $("chip-freq").textContent = fmtF(state.p, state.q) + " Hz"; $("play-state").textContent = state.playing ? "Đang phát" : "Đang dừng";
+  $("play-state").classList.toggle("on", state.playing); $("chip-play-dot").className = "dot " + (state.playing ? "live" : "");
+  if (state.named) state.named.presence({ p: String(state.p), q: String(state.q), t0: state.t0, mode: state.mode, playing: state.playing }).catch(() => {});
+}
+const ticks = $("dial-ticks");
+for (let i = 0; i < 30; i++) { const a = i / 30 * 2 * Math.PI, r1 = i % 5 ? 80 : 74, r2 = 92;
+  const l = document.createElementNS("http://www.w3.org/2000/svg", "line");
+  l.setAttribute("x1", 100 + r1 * Math.sin(a)); l.setAttribute("y1", 100 - r1 * Math.cos(a)); l.setAttribute("x2", 100 + r2 * Math.sin(a)); l.setAttribute("y2", 100 - r2 * Math.cos(a));
+  l.style.stroke = "var(--muted)"; l.setAttribute("stroke-width", i % 5 ? 1 : 2); ticks.appendChild(l); }
+const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let lastText = 0;
+function frame() {
+  const now = clock.nowMs(), cyclesF = Number(state.p) * (now - Number(state.t0)) / (1000 * Number(state.q));
+  const ring = ((cyclesF % 30) + 30) % 30;
+  const ang = reduceMotion ? Math.floor(ring) * 12 : ring * 12;
+  const a = ang * Math.PI / 180; $("needle").setAttribute("x2", 100 + 78 * Math.sin(a)); $("needle").setAttribute("y2", 100 - 78 * Math.cos(a));
+  if (now - lastText > 250) { lastText = now; const us = clock.nowUs(), u = phaseUnitsUs(state.p, state.q, us, state.t0);
+    $("ro-phase").textContent = fixed(u.num * 360n, u.mod, 4).replace(".", ",") + "°";
+    $("ro-cycles").textContent = ((state.p * (us - 1000n * BigInt(state.t0))) / (1000000n * state.q)).toString(); $("dial-cycles").textContent = Math.floor(ring) + " / 30"; }
+  requestAnimationFrame(frame);
+}
+function scrollLog() { const l = $("log"); l.scrollTop = l.scrollHeight; }
+function addMeta(bubble, text) { const m = bubble.querySelector(".meta"); const s = document.createElement("span"); s.textContent = text; m.appendChild(s); }
+function bubbleFor(role, text) { const d = document.createElement("div"); d.className = "msg " + role;
+  const b = document.createElement("div"); b.className = "body"; b.textContent = text; d.appendChild(b);
+  const m = document.createElement("div"); m.className = "meta"; d.appendChild(m); $("log").appendChild(d); scrollLog(); return d; }
+function say(text, grade, refs, tab) { const b = bubbleFor("bot", text);
+  if (grade) { const g = document.createElement("span"); g.className = "grade " + grade; g.textContent = "Bằng chứng " + grade; g.title = KB.evidence_scale[grade]; b.querySelector(".meta").appendChild(g); }
+  if (refs && refs.length) addMeta(b, "Tài liệu [" + refs.join("][") + "]");
+  if (tab) { const btn = document.createElement("button"); btn.type = "button"; btn.textContent = "Mở mục liên quan"; btn.style.fontSize = ".76rem"; btn.style.padding = "2px 8px";
+    btn.addEventListener("click", () => selectTab(tab)); b.querySelector(".meta").appendChild(btn); }
+  speak(text); return b; }
+function speak(text) { if (!$("use-tts").checked || !window.speechSynthesis) return; try { const u = new SpeechSynthesisUtterance(text.replace(/\[\d+\]/g, ""));
+  u.lang = "vi-VN"; const v = speechSynthesis.getVoices().find(x => /vi/i.test(x.lang)); if (v) u.voice = v; speechSynthesis.cancel(); speechSynthesis.speak(u); } catch (e) {} }
+function renderLog() { const tb = $("i-log").querySelector("tbody"); tb.textContent = "";
+  state.log.slice(-12).forEach(({ entry, hash }, i) => { const tr = document.createElement("tr");
+    [String(state.log.length - Math.min(12, state.log.length) + i + 1), entry.event, hash.slice(0, 16)].forEach(t => { const td = document.createElement("td"); td.textContent = t; tr.appendChild(td); }); tb.appendChild(tr); }); }
+function renderIntegrity() { const raw = storeGet(STORE_KEY); if (!raw) return; try { const r = JSON.parse(raw); $("i-cw").textContent = "cw0 " + r.cw[0] + "\ncw1 " + r.cw[1] + "\ntag " + r.tag; } catch (e) {} }
+function selectTab(id) { document.querySelectorAll("#tabs [role=tab]").forEach(t => { const on = t.id === "tab-" + id; t.setAttribute("aria-selected", on ? "true" : "false");
+  $(t.getAttribute("aria-controls")).hidden = !on; }); }
+async function offerFile(name, data, mime) {
+  const dl = window.claude && window.claude.use ? await state.downloadsP : null;
+  if (dl) { try { await dl.save({ filename: name, data }); return "Đã gửi tệp " + name + " để bạn lưu."; } catch (e) { return e && e.code === "declined" ? "Bạn đã không lưu tệp." : "Không lưu được tệp ở đây (" + (e && e.code) + ")."; } }
+  if (window.claude) return "Trình xem này không cho tải tệp.";
+  const url = URL.createObjectURL(new Blob([data], { type: mime })); const a = document.createElement("a"); a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 4000); return "Đã tải " + name + ".";
+}
+function renderBits(text) {
+  const out = $("b-out"); out.textContent = ""; const r = toRational(text);
+  if (!r) { out.textContent = "Nhập một số thập phân, ví dụ 7,83."; return; }
+  const v = Number(String(text).replace(",", ".")), ie = ieee(v);
+  const grp = (bits, ne) => { const d = document.createElement("div"); d.className = "bits"; [...bits].forEach((b, i) => { const s = document.createElement("span"); s.textContent = b;
+    s.className = i === 0 ? "s" : i <= ne ? "e" : ""; d.appendChild(s); }); return d; };
+  const block = (title, lines, bitsEl) => { const b = document.createElement("div"); b.className = "box"; const h = document.createElement("h3"); h.textContent = title; b.appendChild(h);
+    lines.forEach(t => { const p = document.createElement("div"); p.className = "mono"; p.textContent = t; b.appendChild(p); }); if (bitsEl) b.appendChild(bitsEl); out.appendChild(b); };
+  block("Phân số chính xác", [`${text} = ${r.p}/${r.q}`]);
+  block("IEEE 754 binary32", [ie.hex32 + " = " + ie.exact32], grp(ie.bits32, 8));
+  block("IEEE 754 binary64", [ie.hex64 + " = " + ie.exact64], grp(ie.bits64, 11));
+  const rows = [[48000, 32], [44100, 32], [16000000, 32], [16000000, 48]].map(([fc, n]) => { const d = dds(r.p, r.q, fc, n);
+    return `N=${n}, f_clk=${fc} Hz: M=${d.word} (${d.hex}) → ${d.fout} Hz (${d.ppm.replace(".", ",")} ppm)`; });
+  block("Tổng hợp số trực tiếp (DDS)", rows);
+  const t = timer1(r.p, r.q); if (t) block("ATmega328P Timer1, 16 MHz, CTC, đảo OC1A", [`Chia ${t.prescaler}, OCR1A = ${t.ocr} (${t.ocrHex}), TCCR1A = ${t.TCCR1A}, TCCR1B = ${t.TCCR1B}`, `f = ${t.fout} Hz (${t.ppm.replace(".", ",")} ppm)`]);
+}
+function renderVerify(res, label) {
+  const out = $("v-out"), chart = $("v-chart"); state.verify = null; $("v-export").disabled = true;
+  if (!res) { out.textContent = "Không đủ dữ liệu: cần ít nhất 32 mẫu trong hơn 1 giây."; chart.hidden = true; return; }
+  const nom = toRational($("v-nominal").value), tol = Number(String($("v-tol").value).replace(",", ".")) || 1;
+  const fn = nom ? Number(nom.p) / Number(nom.q) : 7.83, err = (res.f - fn) / fn;
+  const ok = Math.abs(err) * 100 <= tol && res.snrDb >= 10, weak = res.snrDb < 10;
+  out.textContent = ""; const p = document.createElement("div");
+  p.innerHTML = `<span class="verdict ${weak ? "warn" : ok ? "good" : "bad"}"></span>`; p.querySelector(".verdict").textContent = weak ? "Không xác định: tín hiệu yếu (SNR < 10 dB)" : ok ? "Đạt" : "Không đạt";
+  out.appendChild(p);
+  const lines = [`Nguồn: ${label}`, `Số mẫu: ${res.n}, thời lượng ${vn(res.duration, 2)} s, tốc độ lấy mẫu trung bình ${vn(res.fs, 1)} Hz`,
+    `Tần số đo: ${vn(res.f, 4)} Hz; công bố ${vn(fn, 4)} Hz; sai số ${vn(err * 100, 3)} % (${vn(err * 1e6, 0)} ppm)`, `SNR: ${vn(res.snrDb, 1)} dB; tiêu chí: |sai số| ≤ ${vn(tol, 2)} % và SNR ≥ 10 dB`];
+  lines.forEach(t => { const d = document.createElement("div"); d.className = "mono"; d.textContent = t; out.appendChild(d); });
+  state.verify = { label, n: res.n, f: res.f, nominal: fn, errPct: err * 100, snrDb: res.snrDb, verdict: weak ? "khong_xac_dinh" : ok ? "dat" : "khong_dat" }; $("v-export").disabled = false;
+  const sp = res.spectrum, max = Math.max(...sp.map(s => s[1])), X = (f) => 40 + (f - 6) / 4 * 580, Y = (v) => 160 - v / max * 140;
+  let path = sp.map((s, i) => (i ? "L" : "M") + X(s[0]).toFixed(1) + "," + Y(s[1]).toFixed(1)).join(" ");
+  chart.innerHTML = `<rect width="640" height="180" style="fill:var(--surface)"/><line x1="40" y1="160" x2="620" y2="160" style="stroke:var(--line)"/>` +
+    [6, 7, 8, 9, 10].map(f => `<text x="${X(f)}" y="176" font-size="11" text-anchor="middle" style="fill:var(--muted)">${f} Hz</text>`).join("") +
+    `<path d="${path}" style="fill:none;stroke:var(--accent)" stroke-width="2"/><line x1="${X(res.f)}" y1="18" x2="${X(res.f)}" y2="160" style="stroke:var(--spark)" stroke-dasharray="4 3"/>` +
+    `<text x="${X(res.f) + 6}" y="28" font-size="12" style="fill:var(--fg)">${vn(res.f, 4)} Hz</text>`;
+  chart.hidden = false;
+}
+
+/* ======================================================================
+   7. Wiring
+   ====================================================================== */
+const SUGGEST = ["7,83 Hz là gì?", "Có hại không?", "Điện thoại đo được không?", "Máy phát có tác dụng không?", "Đồng bộ nhiều thiết bị thế nào?", "bắt đầu đẳng thời 10 phút", "dừng"];
+SUGGEST.forEach(s => { const b = document.createElement("button"); b.type = "button"; b.textContent = s; b.addEventListener("click", () => { $("chat-input").value = s; $("send").click(); }); $("suggest").appendChild(b); });
+$("chat-form").addEventListener("submit", (e) => { e.preventDefault(); const text = $("chat-input").value.trim(); if (!text) return; $("chat-input").value = "";
+  audio.unlock(); bubbleFor("user", text);
+  const cmd = parseCommand(text);
+  if (!cmd && sample && $("use-claude").checked) { const b = bubbleFor("bot", ""); claudeAnswer(text, b); return; }
+  const r = cmd ? runCommand(cmd) : offlineAnswer(text); say(r.text, r.grade, r.refs, r.tab); });
+$("stop-ai").addEventListener("click", () => aiCtl && aiCtl.abort());
+$("start").addEventListener("click", () => { readControls(); startSession(); });
+$("stop").addEventListener("click", () => stopSession("nút dừng"));
+$("volume").addEventListener("input", () => { state.volume = Number($("volume").value); renderVolume(); if (audio.master && audio.ctx) audio.master.gain.setTargetAtTime(Math.min(0.5, state.volume / 100), audio.ctx.currentTime, 0.2); });
+$("volume").addEventListener("change", saveSettings);
+["freq", "mode", "carrier", "minutes", "epoch"].forEach(id => $(id).addEventListener("change", () => { readControls(); if (state.playing) audio.start(); }));
+function readControls() {
+  const r = toRational($("freq").value); if (r && Number(r.p) / Number(r.q) >= 1 && Number(r.p) / Number(r.q) <= 40) { state.p = r.p; state.q = r.q; } else $("freq").value = fmtF(state.p, state.q);
+  state.mode = $("mode").value; const c = Number(String($("carrier").value).replace(",", ".")); state.carrierCenti = c >= 50 && c <= 1000 ? Math.round(c * 100) : 20000; $("carrier").value = vn(state.carrierCenti / 100, 2).replace(/,00$/, "");
+  state.minutes = Math.max(1, Math.min(120, Math.round(Number($("minutes").value) || 20))); $("minutes").value = state.minutes;
+  const ep = String($("epoch").value).trim(); state.t0 = /^\d{1,15}$/.test(ep) ? ep : "0"; $("epoch").value = state.t0;
+  saveSettings(); renderStatic(); }
+$("export-wav").addEventListener("click", async () => { readControls(); const wav = synthWav(state.p, state.q, state.mode, 60, 48000, state.carrierCenti / 100, Math.min(0.5, state.volume / 100));
+  const name = `sr783-${fmtF(state.p, state.q).replace(",", "_")}Hz-${state.mode}-60s`; const zip = zipStore(name + ".wav", wav);
+  say(await offerFile(name + ".zip", zip, "application/zip") + " (WAV 16 bit, 48 kHz, pha tính bằng số nguyên, đóng gói ZIP; SHA-256 tệp WAV: " + sha256Bytes(wav).slice(0, 16) + "…)", null); });
+$("make-code").addEventListener("click", () => say("Mã phiên: " + makeCode(), null));
+$("copy-code").addEventListener("click", () => { const t = $("code-out").textContent; if (!t || t === "–") return;
+  if (navigator.clipboard) navigator.clipboard.writeText(t).then(() => say("Đã sao chép mã phiên.", null), () => selectText($("code-out"))); else selectText($("code-out")); });
+function selectText(el) { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); say("Đã chọn mã, hãy sao chép thủ công.", null); }
+$("join").addEventListener("click", () => say(joinCode($("join-code").value), null));
+$("breath-toggle").addEventListener("click", () => { const ring = $("breath-ring"), on = !ring.classList.contains("run"); ring.classList.toggle("run", on);
+  $("breath-toggle").textContent = on ? "Dừng thở" : "Bắt đầu thở"; clearInterval(state.breathTimer);
+  if (on) { let inhale = true; $("breath-text").textContent = "Hít vào… (5 giây)"; state.breathTimer = setInterval(() => { inhale = !inhale; $("breath-text").textContent = inhale ? "Hít vào… (5 giây)" : "Thở ra… (5 giây)"; }, 5000); }
+  else $("breath-text").textContent = "Thở chậm khoảng 0,1 Hz có bằng chứng tốt hơn cho thư giãn [37]."; });
+document.querySelectorAll("#tabs [role=tab]").forEach(t => t.addEventListener("click", () => selectTab(t.id.slice(4))));
+$("sr-apply").addEventListener("click", () => { const q = $("sr-q").value, r = toRational($("sr-f").value);
+  const f = r ? Number(r.p) / Number(r.q) : NaN;
+  if (!(f >= 7 && f <= 9)) { $("sr-out").textContent = "Giá trị ngoài dải 7,0–9,0 Hz của mode 1: không đồng bộ."; return; }
+  if (q === "poor") { $("sr-out").textContent = "Chất lượng kém: không dùng để đồng bộ."; return; }
+  const msg = applyFrequency($("sr-f").value, "Schumann thực đo, chất lượng " + (q === "good" ? "tốt" : "trung bình")); $("sr-out").textContent = msg; say(msg, "A", [3, 11]); });
+$("sr-file").addEventListener("change", async () => { const f = $("sr-file").files[0]; if (!f) return; const text = await f.text();
+  const rows = text.split(/\r?\n/).slice(1).map(l => l.split(",")).filter(c => c.length >= 3 && Number.isFinite(Number(c[1])))
+    .map(c => ({ t: c[0].trim(), f: Number(c[1]), q: c[2].trim() })).filter(r => r.f >= 7 && r.f <= 9 && r.q !== "poor");
+  if (!rows.length) { $("sr-out").textContent = "Không có dòng hợp lệ (cần f1_hz trong 7,0–9,0 Hz và quality khác poor)."; return; }
+  const last = rows[rows.length - 1]; $("sr-f").value = String(last.f).replace(".", ","); $("sr-q").value = last.q === "fair" ? "fair" : "good";
+  $("sr-out").textContent = `Đã đọc ${rows.length} dòng hợp lệ, dòng mới nhất ${last.t}: ${String(last.f).replace(".", ",")} Hz. Bấm "Đồng bộ theo giá trị này".`; });
+$("v-sample").addEventListener("click", () => { const csv = sampleSensorCsv(); const d = parseCsvNumbers(csv); renderVerify(estimateFrequency(d.ts, d.xs), "dữ liệu mẫu (7,85 Hz, nhiễu 0,3 µT, bước lượng tử 0,15 µT)"); });
+$("v-file").addEventListener("change", async () => { const f = $("v-file").files[0]; if (!f) return; const d = parseCsvNumbers(await f.text()); renderVerify(estimateFrequency(d.ts, d.xs), f.name); });
+$("v-nominal").addEventListener("change", () => $("v-sample").click());
+$("v-export").addEventListener("click", async () => { const v = state.verify; if (!v) return;
+  const csv = "nguon,so_mau,tan_so_do_hz,tan_so_cong_bo_hz,sai_so_phan_tram,snr_db,ket_luan\n" +
+    [JSON.stringify(v.label), v.n, v.f.toFixed(5), v.nominal.toFixed(5), v.errPct.toFixed(4), v.snrDb.toFixed(2), v.verdict].join(",") + "\n";
+  say(await offerFile("sr783-kiem-chung.csv", csv, "text/csv"), null); });
+$("b-go").addEventListener("click", () => renderBits($("b-in").value));
+function flipStored(nbits, word, bit1, bit2) { const raw = storeGet(STORE_KEY); if (!raw) return "";
+  const r = JSON.parse(raw); const w = word ?? Math.floor(Math.random() * 2); const b1 = bit1 ?? Math.floor(Math.random() * 72);
+  let cw = BigInt("0x" + r.cw[w]) ^ (1n << BigInt(b1)); let desc = `từ ${w}, bit ${b1}`;
+  if (nbits === 2) { const b2 = bit2 ?? (b1 + 1 + Math.floor(Math.random() * 71)) % 72; cw ^= 1n << BigInt(b2); desc = `từ ${w}, bit ${b1} và ${b2}`; }
+  r.cw[w] = SECDED72.hex(cw); storeSet(STORE_KEY, JSON.stringify(r)); return desc; }
+function reloadAndReport(desc) { const res = loadSettings(); renderIntegrity(); readBack();
+  const msg = res.status === "corrected" ? `Đã lật ${desc}. Khi nạp lại, SECDED phát hiện và tự sửa bit ở vị trí ${res.positions.join(", ")}; thẻ SHA-256 khớp. Cài đặt nguyên vẹn.` :
+    res.status === "restored" ? `Đã lật ${desc}. SECDED phát hiện lỗi 2 bit (không sửa được), ứng dụng khôi phục cài đặt mặc định và ghi nhật ký.` : "Cài đặt nguyên vẹn.";
+  $("i-out").textContent = msg; say(msg, null); }
+function readBack() { $("freq").value = fmtF(state.p, state.q); $("mode").value = state.mode; $("volume").value = state.volume; renderVolume(); $("minutes").value = state.minutes;
+  $("carrier").value = vn(state.carrierCenti / 100, 2).replace(/,00$/, ""); renderStatic(); }
+$("i-flip1").addEventListener("click", () => reloadAndReport(flipStored(1)));
+$("i-flip2").addEventListener("click", () => reloadAndReport(flipStored(2)));
+$("i-verify").addEventListener("click", () => { const ok = verifyChain(); $("i-out").textContent = ok ? `Chuỗi băm hợp lệ: ${state.log.length} sự kiện, băm cuối ${state.lastHash.slice(0, 16)}…` : "Chuỗi băm KHÔNG hợp lệ: nhật ký đã bị sửa."; });
+$("i-export").addEventListener("click", async () => { const data = JSON.stringify({ genesis: GENESIS, entries: state.log }, null, 1); say(await offerFile("sr783-nhat-ky.json", data, "application/json"), null); });
+const scale = $("a-scale"); Object.entries(KB.evidence_scale).forEach(([k, v]) => { const tr = document.createElement("tr"); const a = document.createElement("td"); const s = document.createElement("span");
+  s.className = "grade " + k; s.textContent = k; a.appendChild(s); const b = document.createElement("td"); b.textContent = v; tr.appendChild(a); tr.appendChild(b); scale.appendChild(tr); });
+$("kb-hash").textContent = "KB SHA-256 " + sha256($("sr783-kb").textContent).slice(0, 16) + "…";
+// Voice input only where the browser offers it outside a sandbox (standalone use)
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+if (SR && !window.claude) { $("mic").hidden = false; $("mic").addEventListener("click", () => { try { const r = new SR(); r.lang = "vi-VN"; r.interimResults = false;
+  r.onresult = (ev) => { $("chat-input").value = ev.results[0][0].transcript; $("send").click(); }; r.onerror = () => say("Không nhận được giọng nói (cần quyền micro).", null); r.start(); } catch (e) {} }); }
+
+/* ======================================================================
+   8. Boot
+   ====================================================================== */
+const boot = loadSettings(); readBack(); renderIntegrity(); logEvent("boot");
+say("Xin chào! Mình là trợ lý SR783. Hỏi mình về tần số 7,83 Hz, hoặc gõ 'hướng dẫn' để xem lệnh. Mọi câu trả lời đều có mức bằng chứng.", null);
+if (boot.status === "corrected") say("Khi khởi động, SECDED đã tự sửa lỗi bit trong cài đặt.", null);
+if (boot.status === "restored") say("Cài đặt lưu bị hỏng nhiều bit nên đã khôi phục mặc định.", null);
+requestAnimationFrame(frame);
+$("env-note").textContent = window.claude ? "Chạy trong Claude" : "Chạy độc lập (ngoại tuyến)";
+if (window.claude && window.claude.use) {
+  state.downloadsP = window.claude.use("downloads").catch(() => null);
+  window.claude.use("sample").then(async (s) => { if (!s) return; sample = s; const lim = await s.limits().catch(() => null); sampleTools = !!(lim && lim.tools);
+    $("use-claude").disabled = false; $("use-claude").checked = true; setChip("ai", "Claude", "good");
+    $("ai-note").textContent = "Hỏi Claude đang bật: câu hỏi tự do được gửi tới Claude bằng tài khoản của bạn (hỏi ý kiến đồng ý ở lần đầu). Lệnh điều khiển vẫn xử lý trên máy."; }).catch(() => {});
+  window.claude.use("room").then((r) => { if (!r) return; state.room = r; $("room-status").textContent = "Phòng nhiều thiết bị: sẵn sàng. Tạo hoặc dán mã phiên để vào phòng."; }).catch(() => {});
+}
+$("use-claude").addEventListener("change", () => { setChip("ai", $("use-claude").checked && sample ? "Claude" : "Ngoại tuyến", "good"); });
+window.SR783 = { core, state, clock, version: "1.0.0", offlineAnswer, parseCommand, matchIntent, flipStored, loadSettings };
+})();
+</script>

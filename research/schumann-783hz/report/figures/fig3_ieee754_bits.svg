@@ -1,0 +1,240 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" width="760" height="330" font-family="Liberation Sans, Arial, Helvetica, DejaVu Sans, sans-serif" role="img" aria-label="Bản đồ bit IEEE 754 của 7,83">
+<title>Hình 3. Bản đồ bit IEEE 754 của 7,83</title>
+<rect width="760" height="330" fill="#fcfcfb"/>
+<text x="24" y="24" font-size="15" font-weight="700" fill="#0b0b0b">Hình 3. Bản đồ bit IEEE 754 của số 7,83</text>
+<text x="24" y="42" font-size="12" fill="#52514e">7,83 không biểu diễn đúng trong nhị phân; giá trị lưu là số gần nhất (làm tròn về chẵn)</text>
+<text x="24" y="64" font-size="12" font-weight="700" fill="#0b0b0b">binary16 · 0x47D4 · giá trị lưu 7.828125</text>
+<rect x="24.00" y="70" width="24.00" height="22" rx="2" fill="#eb6834" fill-opacity="0.16" stroke="#eb6834" stroke-width="1"><title>binary16 bit 15: 0</title></rect>
+<text x="36.00" y="85" font-size="12" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="50.00" y="70" width="24.00" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary16 bit 14: 1</title></rect>
+<text x="62.00" y="85" font-size="12" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="76.00" y="70" width="24.00" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary16 bit 13: 0</title></rect>
+<text x="88.00" y="85" font-size="12" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="102.00" y="70" width="24.00" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary16 bit 12: 0</title></rect>
+<text x="114.00" y="85" font-size="12" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="128.00" y="70" width="24.00" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary16 bit 11: 0</title></rect>
+<text x="140.00" y="85" font-size="12" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="154.00" y="70" width="24.00" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary16 bit 10: 1</title></rect>
+<text x="166.00" y="85" font-size="12" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="180.00" y="70" width="24.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary16 bit 9: 1</title></rect>
+<text x="192.00" y="85" font-size="12" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="206.00" y="70" width="24.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary16 bit 8: 1</title></rect>
+<text x="218.00" y="85" font-size="12" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="232.00" y="70" width="24.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary16 bit 7: 1</title></rect>
+<text x="244.00" y="85" font-size="12" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="258.00" y="70" width="24.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary16 bit 6: 1</title></rect>
+<text x="270.00" y="85" font-size="12" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="284.00" y="70" width="24.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary16 bit 5: 0</title></rect>
+<text x="296.00" y="85" font-size="12" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="310.00" y="70" width="24.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary16 bit 4: 1</title></rect>
+<text x="322.00" y="85" font-size="12" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="336.00" y="70" width="24.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary16 bit 3: 0</title></rect>
+<text x="348.00" y="85" font-size="12" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="362.00" y="70" width="24.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary16 bit 2: 1</title></rect>
+<text x="374.00" y="85" font-size="12" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="388.00" y="70" width="24.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary16 bit 1: 0</title></rect>
+<text x="400.00" y="85" font-size="12" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="414.00" y="70" width="24.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary16 bit 0: 0</title></rect>
+<text x="426.00" y="85" font-size="12" fill="#0b0b0b" text-anchor="middle">0</text>
+<text x="24" y="138" font-size="12" font-weight="700" fill="#0b0b0b">binary32 · 0x40FA8F5C · giá trị lưu 7.8299999237060546875</text>
+<rect x="24.00" y="144" width="20.00" height="22" rx="2" fill="#eb6834" fill-opacity="0.16" stroke="#eb6834" stroke-width="1"><title>binary32 bit 31: 0</title></rect>
+<text x="34.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="46.00" y="144" width="20.00" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary32 bit 30: 1</title></rect>
+<text x="56.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="68.00" y="144" width="20.00" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary32 bit 29: 0</title></rect>
+<text x="78.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="90.00" y="144" width="20.00" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary32 bit 28: 0</title></rect>
+<text x="100.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="112.00" y="144" width="20.00" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary32 bit 27: 0</title></rect>
+<text x="122.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="134.00" y="144" width="20.00" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary32 bit 26: 0</title></rect>
+<text x="144.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="156.00" y="144" width="20.00" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary32 bit 25: 0</title></rect>
+<text x="166.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="178.00" y="144" width="20.00" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary32 bit 24: 0</title></rect>
+<text x="188.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="200.00" y="144" width="20.00" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary32 bit 23: 1</title></rect>
+<text x="210.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="222.00" y="144" width="20.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary32 bit 22: 1</title></rect>
+<text x="232.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="244.00" y="144" width="20.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary32 bit 21: 1</title></rect>
+<text x="254.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="266.00" y="144" width="20.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary32 bit 20: 1</title></rect>
+<text x="276.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="288.00" y="144" width="20.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary32 bit 19: 1</title></rect>
+<text x="298.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="310.00" y="144" width="20.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary32 bit 18: 0</title></rect>
+<text x="320.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="332.00" y="144" width="20.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary32 bit 17: 1</title></rect>
+<text x="342.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="354.00" y="144" width="20.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary32 bit 16: 0</title></rect>
+<text x="364.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="376.00" y="144" width="20.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary32 bit 15: 1</title></rect>
+<text x="386.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="398.00" y="144" width="20.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary32 bit 14: 0</title></rect>
+<text x="408.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="420.00" y="144" width="20.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary32 bit 13: 0</title></rect>
+<text x="430.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="442.00" y="144" width="20.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary32 bit 12: 0</title></rect>
+<text x="452.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="464.00" y="144" width="20.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary32 bit 11: 1</title></rect>
+<text x="474.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="486.00" y="144" width="20.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary32 bit 10: 1</title></rect>
+<text x="496.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="508.00" y="144" width="20.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary32 bit 9: 1</title></rect>
+<text x="518.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="530.00" y="144" width="20.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary32 bit 8: 1</title></rect>
+<text x="540.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="552.00" y="144" width="20.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary32 bit 7: 0</title></rect>
+<text x="562.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="574.00" y="144" width="20.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary32 bit 6: 1</title></rect>
+<text x="584.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="596.00" y="144" width="20.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary32 bit 5: 0</title></rect>
+<text x="606.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="618.00" y="144" width="20.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary32 bit 4: 1</title></rect>
+<text x="628.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="640.00" y="144" width="20.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary32 bit 3: 1</title></rect>
+<text x="650.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="662.00" y="144" width="20.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary32 bit 2: 1</title></rect>
+<text x="672.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="684.00" y="144" width="20.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary32 bit 1: 0</title></rect>
+<text x="694.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="706.00" y="144" width="20.00" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary32 bit 0: 0</title></rect>
+<text x="716.00" y="159" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<text x="24" y="212" font-size="12" font-weight="700" fill="#0b0b0b">binary64 · 0x401F51EB851EB852 · giá trị lưu 7.8300000000000000710542…</text>
+<rect x="24.00" y="218" width="8.90" height="22" rx="2" fill="#eb6834" fill-opacity="0.16" stroke="#eb6834" stroke-width="1"><title>binary64 bit 63: 0</title></rect>
+<text x="28.45" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="34.90" y="218" width="8.90" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary64 bit 62: 1</title></rect>
+<text x="39.35" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="45.80" y="218" width="8.90" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary64 bit 61: 0</title></rect>
+<text x="50.25" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="56.70" y="218" width="8.90" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary64 bit 60: 0</title></rect>
+<text x="61.15" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="67.60" y="218" width="8.90" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary64 bit 59: 0</title></rect>
+<text x="72.05" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="78.50" y="218" width="8.90" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary64 bit 58: 0</title></rect>
+<text x="82.95" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="89.40" y="218" width="8.90" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary64 bit 57: 0</title></rect>
+<text x="93.85" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="100.30" y="218" width="8.90" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary64 bit 56: 0</title></rect>
+<text x="104.75" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="111.20" y="218" width="8.90" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary64 bit 55: 0</title></rect>
+<text x="115.65" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="122.10" y="218" width="8.90" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary64 bit 54: 0</title></rect>
+<text x="126.55" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="133.00" y="218" width="8.90" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary64 bit 53: 0</title></rect>
+<text x="137.45" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="143.90" y="218" width="8.90" height="22" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6" stroke-width="1"><title>binary64 bit 52: 1</title></rect>
+<text x="148.35" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="154.80" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 51: 1</title></rect>
+<text x="159.25" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="165.70" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 50: 1</title></rect>
+<text x="170.15" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="176.60" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 49: 1</title></rect>
+<text x="181.05" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="187.50" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 48: 1</title></rect>
+<text x="191.95" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="198.40" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 47: 0</title></rect>
+<text x="202.85" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="209.30" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 46: 1</title></rect>
+<text x="213.75" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="220.20" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 45: 0</title></rect>
+<text x="224.65" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="231.10" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 44: 1</title></rect>
+<text x="235.55" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="242.00" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 43: 0</title></rect>
+<text x="246.45" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="252.90" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 42: 0</title></rect>
+<text x="257.35" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="263.80" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 41: 0</title></rect>
+<text x="268.25" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="274.70" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 40: 1</title></rect>
+<text x="279.15" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="285.60" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 39: 1</title></rect>
+<text x="290.05" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="296.50" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 38: 1</title></rect>
+<text x="300.95" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="307.40" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 37: 1</title></rect>
+<text x="311.85" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="318.30" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 36: 0</title></rect>
+<text x="322.75" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="329.20" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 35: 1</title></rect>
+<text x="333.65" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="340.10" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 34: 0</title></rect>
+<text x="344.55" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="351.00" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 33: 1</title></rect>
+<text x="355.45" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="361.90" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 32: 1</title></rect>
+<text x="366.35" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="372.80" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 31: 1</title></rect>
+<text x="377.25" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="383.70" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 30: 0</title></rect>
+<text x="388.15" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="394.60" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 29: 0</title></rect>
+<text x="399.05" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="405.50" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 28: 0</title></rect>
+<text x="409.95" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="416.40" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 27: 0</title></rect>
+<text x="420.85" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="427.30" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 26: 1</title></rect>
+<text x="431.75" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="438.20" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 25: 0</title></rect>
+<text x="442.65" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="449.10" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 24: 1</title></rect>
+<text x="453.55" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="460.00" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 23: 0</title></rect>
+<text x="464.45" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="470.90" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 22: 0</title></rect>
+<text x="475.35" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="481.80" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 21: 0</title></rect>
+<text x="486.25" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="492.70" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 20: 1</title></rect>
+<text x="497.15" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="503.60" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 19: 1</title></rect>
+<text x="508.05" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="514.50" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 18: 1</title></rect>
+<text x="518.95" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="525.40" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 17: 1</title></rect>
+<text x="529.85" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="536.30" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 16: 0</title></rect>
+<text x="540.75" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="547.20" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 15: 1</title></rect>
+<text x="551.65" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="558.10" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 14: 0</title></rect>
+<text x="562.55" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="569.00" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 13: 1</title></rect>
+<text x="573.45" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="579.90" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 12: 1</title></rect>
+<text x="584.35" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="590.80" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 11: 1</title></rect>
+<text x="595.25" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="601.70" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 10: 0</title></rect>
+<text x="606.15" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="612.60" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 9: 0</title></rect>
+<text x="617.05" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="623.50" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 8: 0</title></rect>
+<text x="627.95" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="634.40" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 7: 0</title></rect>
+<text x="638.85" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="645.30" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 6: 1</title></rect>
+<text x="649.75" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="656.20" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 5: 0</title></rect>
+<text x="660.65" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="667.10" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 4: 1</title></rect>
+<text x="671.55" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="678.00" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 3: 0</title></rect>
+<text x="682.45" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="688.90" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 2: 0</title></rect>
+<text x="693.35" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="699.80" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 1: 1</title></rect>
+<text x="704.25" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="710.70" y="218" width="8.90" height="22" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a" stroke-width="1"><title>binary64 bit 0: 0</title></rect>
+<text x="715.15" y="233" font-size="7.5" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="24" y="276" width="14" height="12" rx="2" fill="#eb6834" fill-opacity="0.16" stroke="#eb6834"/>
+<text x="44" y="286" font-size="12" fill="#52514e">dấu (sign)</text>
+<rect x="134" y="276" width="14" height="12" rx="2" fill="#2a78d6" fill-opacity="0.16" stroke="#2a78d6"/>
+<text x="154" y="286" font-size="12" fill="#52514e">số mũ có độ lệch (exponent)</text>
+<rect x="363" y="276" width="14" height="12" rx="2" fill="#1baf7a" fill-opacity="0.16" stroke="#1baf7a"/>
+<text x="383" y="286" font-size="12" fill="#52514e">phần định trị (fraction)</text>
+<text x="24" y="310" font-size="12" fill="#52514e">binary32: số mũ 10000001₂ = 129 → 2^(129−127) = 2^2; sai số −7,63·10⁻⁸ (≈ −9,74 ppb)</text>
+</svg>

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" width="760" height="520" font-family="Liberation Sans, Arial, Helvetica, DejaVu Sans, sans-serif" role="img" aria-label="Kiến trúc hệ thống SR783">
+<title>Hình 8. Kiến trúc phần mềm/thiết bị trung gian SR783</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#898781"/></marker></defs>
+<rect width="760" height="520" fill="#fcfcfb"/>
+<text x="24" y="24" font-size="15" font-weight="700" fill="#0b0b0b">Hình 8. Kiến trúc SR783: trợ lý hội thoại + lõi đồng bộ tần số trên thiết bị đa năng</text>
+<rect x="250" y="40" width="260" height="52" rx="6" fill="#fcfcfb" stroke="#52514e" stroke-width="1.5"/>
+<rect x="250" y="40" width="6" height="52" rx="2" fill="#52514e"/>
+<text x="264" y="58" font-size="12.5" font-weight="700" fill="#0b0b0b">Người dùng</text>
+<text x="264" y="75" font-size="11" fill="#52514e">điện thoại · máy tính bảng · máy tính · TV</text>
+<rect x="24" y="120" width="330" height="84" rx="6" fill="#fcfcfb" stroke="#2a78d6" stroke-width="1.5"/>
+<rect x="24" y="120" width="6" height="84" rx="2" fill="#2a78d6"/>
+<text x="38" y="138" font-size="12.5" font-weight="700" fill="#0b0b0b">Trợ lý hội thoại (tiếng Việt)</text>
+<text x="38" y="155" font-size="11" fill="#52514e">Ngoại tuyến: cơ sở tri thức + mức bằng chứng A–D</text>
+<text x="38" y="170" font-size="11" fill="#52514e">Trực tuyến (tùy chọn): Claude gọi công cụ trang</text>
+<text x="38" y="185" font-size="11" fill="#52514e">Rào an toàn: không tuyên bố y tế, cảnh báo nhấp nháy</text>
+<rect x="406" y="120" width="330" height="84" rx="6" fill="#fcfcfb" stroke="#eb6834" stroke-width="1.5"/>
+<rect x="406" y="120" width="6" height="84" rx="2" fill="#eb6834"/>
+<text x="420" y="138" font-size="12.5" font-weight="700" fill="#0b0b0b">Lõi đồng bộ tần số</text>
+<text x="420" y="155" font-size="11" fill="#52514e">f = p/q Hz (hữu tỉ, mặc định 783/100)</text>
+<text x="420" y="170" font-size="11" fill="#52514e">pha = (p·Δt mod 1000q)/1000q, Δt: ms UTC</text>
+<text x="420" y="185" font-size="11" fill="#52514e">đồng hồ âm thanh khóa theo mốc pha 0</text>
+<rect x="24" y="240" width="230" height="84" rx="6" fill="#fcfcfb" stroke="#1baf7a" stroke-width="1.5"/>
+<rect x="24" y="240" width="6" height="84" rx="2" fill="#1baf7a"/>
+<text x="38" y="258" font-size="12.5" font-weight="700" fill="#0b0b0b">Đồng bộ theo Schumann thực đo</text>
+<text x="38" y="275" font-size="11" fill="#52514e">nhập f₁ đo được hoặc CSV trạm</text>
+<text x="38" y="290" font-size="11" fill="#52514e">kiểm tra dải 7,0–9,0 Hz, cờ chất lượng</text>
+<text x="38" y="305" font-size="11" fill="#52514e">đổi sang p/q (q = 1000)</text>
+<rect x="266" y="240" width="230" height="84" rx="6" fill="#fcfcfb" stroke="#1baf7a" stroke-width="1.5"/>
+<rect x="266" y="240" width="6" height="84" rx="2" fill="#1baf7a"/>
+<text x="280" y="258" font-size="12.5" font-weight="700" fill="#0b0b0b">Phòng nhiều thiết bị</text>
+<text x="280" y="275" font-size="11" fill="#52514e">mã phiên SR783 có kiểm tra SHA-256</text>
+<text x="280" y="290" font-size="11" fill="#52514e">ping/pong ước lượng lệch đồng hồ</text>
+<text x="280" y="305" font-size="11" fill="#52514e">hiện diện: thiết bị đang khớp pha</text>
+<rect x="508" y="240" width="228" height="84" rx="6" fill="#fcfcfb" stroke="#eb6834" stroke-width="1.5"/>
+<rect x="508" y="240" width="6" height="84" rx="2" fill="#eb6834"/>
+<text x="522" y="258" font-size="12.5" font-weight="700" fill="#0b0b0b">Đầu ra</text>
+<text x="522" y="275" font-size="11" fill="#52514e">âm đẳng thời / hai tai / đơn âm</text>
+<text x="522" y="290" font-size="11" fill="#52514e">vòng pha 30 chu kỳ (không nhấp nháy)</text>
+<text x="522" y="305" font-size="11" fill="#52514e">xuất WAV 16 bit đóng gói ZIP</text>
+<rect x="24" y="360" width="230" height="84" rx="6" fill="#fcfcfb" stroke="#2a78d6" stroke-width="1.5"/>
+<rect x="24" y="360" width="6" height="84" rx="2" fill="#2a78d6"/>
+<text x="38" y="378" font-size="12.5" font-weight="700" fill="#0b0b0b">Kiểm chứng thiết bị 7,83 Hz</text>
+<text x="38" y="395" font-size="11" fill="#52514e">CSV cảm biến → Goertzel + nội suy</text>
+<text x="38" y="410" font-size="11" fill="#52514e">tần số đo, sai số ppm, SNR</text>
+<text x="38" y="425" font-size="11" fill="#52514e">kết luận Đạt/Không đạt</text>
+<rect x="266" y="360" width="230" height="84" rx="6" fill="#fcfcfb" stroke="#2a78d6" stroke-width="1.5"/>
+<rect x="266" y="360" width="6" height="84" rx="2" fill="#2a78d6"/>
+<text x="280" y="378" font-size="12.5" font-weight="700" fill="#0b0b0b">Toàn vẹn và tự sửa lỗi</text>
+<text x="280" y="395" font-size="11" fill="#52514e">cài đặt mã hóa SECDED(72,64)</text>
+<text x="280" y="410" font-size="11" fill="#52514e">sửa 1 bit, phát hiện 2 bit</text>
+<text x="280" y="425" font-size="11" fill="#52514e">nhật ký chuỗi băm SHA-256</text>
+<rect x="508" y="360" width="228" height="84" rx="6" fill="#fcfcfb" stroke="#52514e" stroke-width="1.5"/>
+<rect x="508" y="360" width="6" height="84" rx="2" fill="#52514e"/>
+<text x="522" y="378" font-size="12.5" font-weight="700" fill="#0b0b0b">Thiết bị trung gian (tùy chọn)</text>
+<text x="522" y="395" font-size="11" fill="#52514e">cuộn cảm ứng + ADC 24 bit</text>
+<text x="522" y="410" font-size="11" fill="#52514e">TCXO hoặc GPS 1 PPS làm chuẩn</text>
+<text x="522" y="425" font-size="11" fill="#52514e">USB-C / BLE tới thiết bị đa năng</text>
+<text x="24" y="482" font-size="11" fill="#52514e">Mũi tên: luồng dữ liệu. Toàn bộ chạy cục bộ; chỉ chức năng trực tuyến tùy chọn gửi câu hỏi tới Claude khi người dùng đồng ý.</text>
+<text x="24" y="500" font-size="11" fill="#52514e">Không có chức năng chẩn đoán hay điều trị; phát nhịp 7,83 Hz chỉ phục vụ thư giãn, giáo dục và nghiên cứu.</text>
+<line x1="330" y1="92" x2="190" y2="120" stroke="#898781" stroke-width="1.5" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="430" y1="92" x2="570" y2="120" stroke="#898781" stroke-width="1.5" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="354" y1="162" x2="406" y2="162" stroke="#898781" stroke-width="1.5" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="139" y1="240" x2="470" y2="204" stroke="#898781" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="381" y1="240" x2="520" y2="204" stroke="#898781" stroke-width="1.5" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="640" y1="204" x2="622" y2="240" stroke="#898781" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="502" y1="360" x2="502" y2="204" stroke="#898781" stroke-width="1.5" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<polyline points="736,402 748,402 748,162 736,162" fill="none" stroke="#898781" stroke-width="1.5" marker-end="url(#ah)"/>
+<polyline points="622,444 622,456 139,456 139,444" fill="none" stroke="#898781" stroke-width="1.5" marker-end="url(#ah)"/>
+</svg>

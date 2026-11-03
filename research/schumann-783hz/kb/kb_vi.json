@@ -1,0 +1,245 @@
+{
+ "version": "1.0.0",
+ "language": "vi",
+ "source": "Báo cáo nghiên cứu chuyên sâu về tần số 7,83 Hz (research/schumann-783hz/report)",
+ "evidence_scale": {
+  "A": "Bằng chứng mạnh: đo đạc lặp lại nhiều nơi, tiêu chuẩn hoặc văn bản chính thức",
+  "B": "Bằng chứng trung bình: nghiên cứu có kiểm soát hoặc tổng quan, còn giới hạn",
+  "C": "Bằng chứng yếu hoặc sơ bộ: mẫu nhỏ, thí nghiệm tế bào, kết quả mâu thuẫn",
+  "D": "Không có bằng chứng hoặc đã bị bác bỏ"
+ },
+ "safety": {
+  "crisis_terms": ["tu tu", "tu sat", "muon chet", "ket lieu", "tu hai", "khong muon song"],
+  "crisis_reply": "Mình rất tiếc vì bạn đang trải qua điều này. Bạn không phải một mình. Nếu đang có nguy hiểm tức thời, hãy gọi ngay 115 (cấp cứu) hoặc đến cơ sở y tế gần nhất, và báo cho một người thân đang ở gần. Ứng dụng này không thay thế được sự hỗ trợ của con người và nhân viên y tế.",
+  "medical_terms": ["chua benh", "dieu tri", "ung thu", "tram cam", "huyet ap", "tieu duong", "dong kinh", "co giat", "may tao nhip", "mang thai", "thuoc", "tim mach", "dot quy", "chua khoi", "lieu trinh"],
+  "medical_reply": "Mình không đưa ra lời khuyên chẩn đoán hay điều trị. Chưa có bằng chứng lâm sàng vững chắc rằng tín hiệu 7,83 Hz chữa được bệnh nào [34][38][39]. Nếu bạn có bệnh lý (đặc biệt động kinh nhạy cảm ánh sáng, đang dùng máy tạo nhịp tim, hoặc đang mang thai), hãy hỏi bác sĩ trước khi dùng bất kỳ thiết bị phát tín hiệu nào. Thiết bị quảng cáo công dụng chữa bệnh thuộc diện trang thiết bị y tế và phải được phân loại, công bố hoặc đăng ký lưu hành theo quy định [47]."
+ },
+ "intents": [
+  {
+   "id": "what_is",
+   "keywords": ["7 83 hz la gi", "7 83 la gi", "schumann la gi", "cong huong schumann la gi", "tan so trai dat", "nhip tim trai dat", "nguon goc"],
+   "grade": "A",
+   "answer": "7,83 Hz là giá trị danh nghĩa của mode cơ bản của cộng hưởng Schumann: các dao động điện từ tần số cực thấp (ELF) trong khoang giữa mặt đất dẫn điện và tầng điện ly, được kích thích liên tục bởi sét toàn cầu (khoảng 44 ± 5 tia sét mỗi giây). W. O. Schumann dự đoán năm 1952; Balser và Wagner quan sát được năm 1960. Các mode quan sát nằm quanh 7,8; 14,3; 20,8; 27,3 và 33,8 Hz [1][2][3][6].",
+   "refs": [1, 2, 3, 6]
+  },
+  {
+   "id": "why_783",
+   "keywords": ["tai sao", "vi sao", "cong thuc", "chu vi", "buoc song", "khoang ly tuong"],
+   "grade": "A",
+   "answer": "Với khoang lý tưởng không tổn hao, f_n = c/(2πa)·√(n(n+1)) cho mode 1 khoảng 10,59 Hz. Tầng điện ly dẫn điện hữu hạn làm khoang tổn hao nên tần số quan sát thấp hơn, khoảng 7,8 Hz (bằng 0,739 lần giá trị lý tưởng). Bước sóng c/7,83 Hz ≈ 38 288 km, xấp xỉ chu vi Trái Đất 40 030 km [3].",
+   "refs": [3]
+  },
+  {
+   "id": "not_constant",
+   "keywords": ["co dinh", "thay doi", "dao dong", "bien thien", "ngay dem", "mat troi", "chu ky"],
+   "grade": "A",
+   "answer": "Không cố định. Tần số mode 1 thay đổi trong khoảng xấp xỉ 7,5–8 Hz theo giờ trong ngày, mùa, chu kỳ Mặt Trời và các sự kiện tia X, proton Mặt Trời; biên độ chủ yếu theo hoạt động sét. Cường độ thường cực đại quanh 08, 14 và 20 giờ UT, tương ứng 15 giờ, 21 giờ và 3 giờ sáng hôm sau theo giờ Việt Nam [3][4][8].",
+   "refs": [3, 4, 8]
+  },
+  {
+   "id": "rising_myth",
+   "keywords": ["dang tang", "tang len", "40 hz", "13 hz", "tang vot", "dot bien", "tomsk", "pho do", "vach trang"],
+   "grade": "D",
+   "answer": "Không có bằng chứng tần số Schumann 'đang tăng' lên 13 Hz hay 40 Hz. Các ảnh phổ đồ lan truyền trên mạng (thường từ trạm Tomsk, Nga) có vạch sáng do sét gần, nhiễu thiết bị hoặc mất dữ liệu; chính đơn vị vận hành từng giải thích một đợt bất thường năm 2023 là do sự cố trạm biến áp. Các phép đo khoa học vẫn cho mode 1 quanh 7,8 Hz [42][43][44][3].",
+   "refs": [42, 43, 44, 3]
+  },
+  {
+   "id": "brain_alpha",
+   "keywords": ["song nao", "alpha", "theta", "eeg", "nao bo", "trung song nao"],
+   "grade": "B",
+   "answer": "Theo bảng thuật ngữ IFCN 2017, dải alpha là 8–13 Hz, còn theta là 4 đến dưới 8 Hz, nên 7,83 Hz thuộc theta trên chứ không phải alpha. Việc hai dải tần gần nhau không chứng minh quan hệ nhân quả; vài nghiên cứu tương quan (ví dụ Saroka và cộng sự 2016) chưa được lặp lại độc lập ở quy mô lớn [33][40].",
+   "refs": [33, 40]
+  },
+  {
+   "id": "health",
+   "keywords": ["suc khoe", "loi ich", "tac dung", "co tot", "chua lanh", "tang mien dich", "can bang"],
+   "grade": "C",
+   "answer": "Chưa có bằng chứng lâm sàng vững chắc về lợi ích sức khỏe của tín hiệu 7,83 Hz. Có một số thí nghiệm sơ bộ: tế bào cơ tim chuột nuôi cấy phản ứng với từ trường 7,8 Hz, 90 nT (Elhalel 2019) và một nghiên cứu thí điểm 6 người về tưới máu da (Mayrovitz 2025). Các kết quả này chưa đủ để kết luận về tác dụng trên người [38][39][41].",
+   "refs": [38, 39, 41]
+  },
+  {
+   "id": "harm",
+   "keywords": ["co hai", "nguy hiem", "an toan khong", "doc hai", "anh huong xau"],
+   "grade": "A",
+   "answer": "Cộng hưởng tự nhiên chỉ cỡ 1 pT, nhỏ hơn mức tham chiếu ICNIRP cho công chúng ở 7,83 Hz (652,4 µT) khoảng 6,5·10⁸ lần. Máy phát nhỏ điển hình tạo khoảng 62,8 pT ở 1 m. Rủi ro thực tế nằm ở chỗ khác: ánh sáng nhấp nháy 7,83 lần/giây có thể gây co giật ở người nhạy cảm ánh sáng, âm lượng tai nghe quá lớn, và quảng cáo sai sự thật [30][35][36].",
+   "refs": [30, 35, 36]
+  },
+  {
+   "id": "generator",
+   "keywords": ["may phat", "thiet bi phat", "may tao song", "may 7 83", "generator", "pemf", "xung tu", "may phat co tac dung", "may phat co hieu qua", "phat 7 83", "may phat 7 83", "may tao song schumann", "nen mua"],
+   "grade": "D",
+   "answer": "Máy phát '7,83 Hz' thường là mạch vi điều khiển hoặc IC 555 đóng ngắt một cuộn dây. Theo mô hình cuộn 100 vòng, 10 mA, bán kính 1 cm, từ trường là 61,9 nT ở 10 cm và 62,8 pT ở 1 m; chưa có bằng chứng các tuyên bố cải thiện giấc ngủ, chống stress hay 'chống EMF'. Nếu mua, hãy kiểm tra chứng nhận an toàn điện, tương thích điện từ và không tin quảng cáo chữa bệnh [48][47][46].",
+   "refs": [48, 47, 46]
+  },
+  {
+   "id": "binaural",
+   "keywords": ["binaural", "hai tai", "nhip phach", "am thanh 7 83", "nhac 7 83", "tai nghe"],
+   "grade": "C",
+   "answer": "Nhịp phách hai tai tạo bằng hai âm hơi khác tần số ở hai tai (ví dụ 200 Hz và 207,83 Hz); nhịp 7,83 Hz là cảm nhận, không có trong tín hiệu. Tổng quan hệ thống 2023 thấy bằng chứng 'cuốn theo sóng não' chưa nhất quán: 5 trong 14 nghiên cứu ủng hộ, 8 trái ngược, 1 hỗn hợp. Có thể dùng để thư giãn, nhưng nên để âm lượng nhỏ [34].",
+   "refs": [34]
+  },
+  {
+   "id": "isochronic",
+   "keywords": ["isochronic", "dang thoi", "xung am", "am don"],
+   "grade": "C",
+   "answer": "Âm đẳng thời là một âm mang (ví dụ 200 Hz) được điều biên lên xuống 7,83 lần mỗi giây, nghe được cả bằng loa. Bằng chứng về tác dụng sinh lý tương tự nhịp phách hai tai: còn yếu. Ứng dụng này phát âm đẳng thời với pha tính bằng số học số nguyên nên không trôi tần số [34].",
+   "refs": [34]
+  },
+  {
+   "id": "flicker",
+   "keywords": ["nhap nhay", "anh sang", "den chop", "video 7 83", "dong kinh anh sang", "flash"],
+   "grade": "A",
+   "answer": "Ánh sáng hay hình ảnh nhấp nháy 7,83 lần/giây vượt ngưỡng 3 lần/giây của tiêu chí WCAG 2.3.1 nếu vùng nhấp nháy đủ lớn và đủ tương phản. Khoảng 0,3–3 % dân số có đáp ứng nhạy cảm ánh sáng; dải 15–25 Hz gây kích thích mạnh nhất nhưng dải nguy cơ trải từ 1 đến 65 Hz. Vì vậy ứng dụng này không bao giờ nhấp nháy ở 7,83 Hz [35][36].",
+   "refs": [35, 36]
+  },
+  {
+   "id": "phone_measure",
+   "keywords": ["dien thoai do", "do bang dien thoai", "ung dung do", "smartphone", "tu ke dien thoai", "do tan so schumann"],
+   "grade": "A",
+   "answer": "Không đo được. Từ kế điện thoại điển hình (AK09918) có độ phân giải 0,15 µT mỗi bước số (LSB), trong khi cộng hưởng Schumann chỉ khoảng 1 pT, tức 6,667·10⁻⁶ LSB. Muốn phân giải 1 pT trên toàn thang 4912 µT cần khoảng 32,19 bit cùng nhiễu nền cực thấp, điều chỉ từ kế cuộn cảm ứng chuyên dụng làm được [29][10][11].",
+   "refs": [29, 10, 11]
+  },
+  {
+   "id": "phone_verify",
+   "keywords": ["kiem chung", "kiem tra may", "thu may", "co dung 7 83", "do may phat"],
+   "grade": "A",
+   "answer": "Có thể kiểm chứng máy phát ở cự ly rất gần. Theo mô hình cuộn dây mẫu, tín hiệu đạt 1 LSB của từ kế điện thoại ở 7,42 cm và 10 LSB ở 3,33 cm. Đặt điện thoại sát máy phát, ghi dữ liệu từ kế thành CSV (cột thời gian và giá trị), rồi nạp vào mục 'Kiểm chứng thiết bị' để đo tần số, sai số ppm và SNR [29].",
+   "refs": [29]
+  },
+  {
+   "id": "sync_how",
+   "keywords": ["dong bo", "nhieu thiet bi", "cung pha", "khop pha", "dong bo tan so", "ma phien"],
+   "grade": "A",
+   "answer": "Ứng dụng biểu diễn tần số dưới dạng phân số p/q (7,83 Hz = 783/100) và tính pha bằng số nguyên: pha = (p·Δt mod 1000q)/(1000q), với Δt là mili giây UTC tính từ mốc phiên. Mọi thiết bị có đồng hồ đúng đều ra cùng pha mà không cần máy chủ. Mỗi 1 ms lệch đồng hồ gây 2,82° lệch pha; muốn lệch dưới 10° thì đồng hồ phải khớp trong 3,548 ms [22].",
+   "refs": [22]
+  },
+  {
+   "id": "sr_sync",
+   "keywords": ["schumann thuc", "thuc do", "du lieu tram", "nhap du lieu", "csv schumann", "tan so thuc te"],
+   "grade": "A",
+   "answer": "Bạn có thể nhập tần số mode 1 đo được (ví dụ 7,792 Hz từ một trạm quan trắc) hoặc tệp CSV. Ứng dụng chỉ chấp nhận giá trị 7,0–9,0 Hz, gắn cờ chất lượng, đổi sang phân số với q = 1000 rồi đồng bộ bộ phát theo giá trị thực đo thay vì con số danh nghĩa 7,83 Hz [3][11].",
+   "refs": [3, 11]
+  },
+  {
+   "id": "nasa_myth",
+   "keywords": ["nasa", "phi hanh gia", "tau vu tru", "khong gian"],
+   "grade": "D",
+   "answer": "Không có tài liệu công khai nào cho thấy NASA lắp 'máy phát Schumann' trên tàu vũ trụ; đây là thông tin lan truyền không có nguồn. Công trình thật của NASA là phát hiện tín hiệu cộng hưởng Schumann từ vệ tinh C/NOFS năm 2011, ở độ cao khoảng 400–800 km [7][44].",
+   "refs": [7, 44]
+  },
+  {
+   "id": "icnirp",
+   "keywords": ["icnirp", "gioi han", "nguong", "tieu chuan phoi nhiem", "muc tham chieu"],
+   "grade": "A",
+   "answer": "Hướng dẫn ICNIRP 2010 (1 Hz–100 kHz) cho dải 1–8 Hz đặt mức tham chiếu công chúng B = 4·10⁻²/f² T, tức 652,4 µT ở 7,83 Hz (nghề nghiệp 3262 µT); giới hạn cơ bản cho mô thần kinh trung ương 0,1/f V/m, tức 12,8 mV/m. Việt Nam có QCVN 25:2016/BYT cho từ trường tần số công nghiệp 50 Hz tại nơi làm việc, không trực tiếp cho 7,83 Hz [30][49].",
+   "refs": [30, 49]
+  },
+  {
+   "id": "law_vn",
+   "keywords": ["phap luat", "luat", "quang cao", "nguoi tieu dung", "quy dinh", "giay phep", "dang ky luu hanh"],
+   "grade": "A",
+   "answer": "Ở Việt Nam: quảng cáo phải trung thực theo Luật Quảng cáo (sửa đổi bởi Luật 75/2025/QH15, hiệu lực 01/01/2026); người tiêu dùng được bảo vệ theo Luật số 19/2023/QH15; thiết bị có mục đích y tế phải phân loại A–D theo Nghị định 98/2021/NĐ-CP (sửa đổi 2023, 2025); thiết bị điện gia dụng phải đáp ứng các quy chuẩn an toàn và tương thích điện từ của Bộ Khoa học và Công nghệ [45][46][47][48].",
+   "refs": [45, 46, 47, 48]
+  },
+  {
+   "id": "ai_ml",
+   "keywords": ["ai", "tri tue nhan tao", "hoc may", "machine learning", "hoc sau", "mang no ron", "deep learning"],
+   "grade": "B",
+   "answer": "AI được dùng để làm sạch và phân tích dữ liệu Schumann: tự động khớp hàm Lorentz, khử nhiễu bằng bộ mã hóa tự động, phát hiện sự kiện. Thí nghiệm tái lập trong báo cáo cho thấy phương pháp lai (học máy khởi tạo + khớp Lorentz bền vững) đạt sai số trung bình 0,0299 Hz, so với 0,3283 Hz của cách lấy đỉnh cực đại [11][13].",
+   "refs": [11, 13]
+  },
+  {
+   "id": "earthquake",
+   "keywords": ["dong dat", "du bao dong dat", "dia chan"],
+   "grade": "C",
+   "answer": "Một số nhóm nghiên cứu thử dùng học sâu để tìm dấu hiệu động đất trong dữ liệu Schumann, nhưng đến nay đây vẫn là hướng thăm dò, chưa phải công cụ dự báo đáng tin cậy. Không nên dựa vào thông tin 'Schumann báo động đất' trên mạng xã hội [14][15][4].",
+   "refs": [14, 15, 4]
+  },
+  {
+   "id": "climate",
+   "keywords": ["khi hau", "nhiet do", "set", "nhiet ke", "thoi tiet"],
+   "grade": "A",
+   "answer": "Vì sét là nguồn kích thích, cường độ cộng hưởng Schumann phản ánh hoạt động giông sét toàn cầu; Williams (1992) gọi nó là 'nhiệt kế nhiệt đới toàn cầu'. Vệ tinh OTD ước lượng trung bình 44 ± 5 tia sét mỗi giây trên toàn Trái Đất [5][6].",
+   "refs": [5, 6]
+  },
+  {
+   "id": "planets",
+   "keywords": ["hanh tinh", "titan", "sao hoa", "huygens"],
+   "grade": "B",
+   "answer": "Cộng hưởng kiểu Schumann có thể tồn tại ở các thiên thể có tầng điện ly. Tàu Huygens ghi được tín hiệu quanh 36 Hz trên Titan, được giải thích là mode thứ hai của một cộng hưởng kiểu Schumann do plasma của từ quyển Sao Thổ kích thích, không phải do sét [9].",
+   "refs": [9]
+  },
+  {
+   "id": "elf_comm",
+   "keywords": ["tau ngam", "thong tin lien lac", "truyen tin", "elf", "zevs", "bit moi giay"],
+   "grade": "A",
+   "answer": "Sóng ELF xuyên được nước biển nên từng dùng để liên lạc một chiều với tàu ngầm: hệ thống của Hải quân Mỹ dùng khoảng 76 Hz, điều tần 72–80 Hz để mã hóa bit, hoạt động 1989–2004; Nga có trạm ZEVS 82 Hz. Băng thông hẹp khiến tốc độ dữ liệu cực thấp, đúng như giới hạn Shannon C = B·log₂(1 + SNR) [20][21].",
+   "refs": [20, 21]
+  },
+  {
+   "id": "covert",
+   "keywords": ["an ninh", "kenh an", "bao mat", "danh cap du lieu", "air gap", "odini", "magneto"],
+   "grade": "A",
+   "answer": "Máy tính phát ra từ trường tần số thấp khi tải CPU thay đổi. Nghiên cứu ODINI đạt tối đa 40 bit/s ở 100–150 cm; MAGNETO dùng từ kế điện thoại thu 0,2–5 bit/s trong vòng khoảng 12 cm. Biện pháp phòng vệ gồm che chắn, gây nhiễu và phân vùng khoảng cách [18][19].",
+   "refs": [18, 19]
+  },
+  {
+   "id": "integrity",
+   "keywords": ["hamming", "sha 256", "sha256", "tu sua loi", "toan ven", "ma hoa", "secded", "bit loi"],
+   "grade": "A",
+   "answer": "Cài đặt của ứng dụng được lưu dưới dạng hai từ 64 bit, mỗi từ mã hóa SECDED(72,64) (mã Hamming mở rộng): lật 1 bit sẽ được tự sửa, lật 2 bit sẽ bị phát hiện và ứng dụng khôi phục mặc định. Nhật ký phiên dùng chuỗi băm SHA-256 nên mọi sửa đổi về sau đều lộ ra [23][24].",
+   "refs": [23, 24]
+  },
+  {
+   "id": "bits",
+   "keywords": ["ieee", "nhi phan", "dau phay dong", "float", "thanh ghi", "dds", "tuning word"],
+   "grade": "A",
+   "answer": "Số 7,83 không biểu diễn đúng trong nhị phân: binary32 lưu 0x40FA8F5C = 7,8299999237060546875; binary64 lưu 0x401F51EB851EB852. Với bộ tích lũy pha 32 bit ở 48 kHz, từ điều chỉnh DDS là 700617, cho 7,830005139 Hz (+0,656 ppm). Vi điều khiển ATmega328P 16 MHz dùng Timer1 chia 64, OCR1A = 15963 (0x3E5B), cho 7,830117765 Hz (+15,040 ppm) [22][26][27].",
+   "refs": [22, 26, 27]
+  },
+  {
+   "id": "sleep",
+   "keywords": ["giac ngu", "mat ngu", "ngu ngon", "ngu sau"],
+   "grade": "C",
+   "answer": "Chưa có thử nghiệm đủ mạnh cho thấy tín hiệu 7,83 Hz cải thiện giấc ngủ. Những biện pháp có bằng chứng tốt hơn là giờ ngủ đều đặn, hạn chế màn hình và cà phê buổi tối, phòng ngủ tối và mát. Mất ngủ kéo dài nên được khám bác sĩ [34].",
+   "refs": [34]
+  },
+  {
+   "id": "breathing",
+   "keywords": ["tho", "hit tho", "thien", "thu gian", "cang thang", "stress"],
+   "grade": "B",
+   "answer": "Nếu mục tiêu là thư giãn, thở chậm khoảng 6 nhịp mỗi phút (0,1 Hz) có cơ sở tốt hơn: nhiều nghiên cứu phản hồi sinh học nhịp tim ghi nhận hiệu quả tối đa quanh nhịp thở này. Ứng dụng có vòng dẫn nhịp thở chậm, chuyển động mượt, không nhấp nháy [37].",
+   "refs": [37]
+  },
+  {
+   "id": "solfeggio",
+   "keywords": ["432", "528", "solfeggio", "tan so chua lanh", "tan so vu tru"],
+   "grade": "D",
+   "answer": "Các tuyên bố về 'tần số chữa lành' như 432 Hz hay 528 Hz không có bằng chứng khoa học được kiểm chứng, và chúng không liên quan về mặt vật lý tới cộng hưởng Schumann 7,83 Hz, vốn là sóng điện từ chứ không phải âm thanh [3].",
+   "refs": [3]
+  },
+  {
+   "id": "privacy",
+   "keywords": ["rieng tu", "du lieu ca nhan", "luu tru", "gui di", "bao mat du lieu"],
+   "grade": "A",
+   "answer": "Mặc định mọi thứ chạy trên thiết bị của bạn: không tài khoản, không gửi dữ liệu đi. Cài đặt nằm trong bộ nhớ trình duyệt, được bảo vệ bằng mã SECDED và thẻ SHA-256. Chức năng hỏi Claude chỉ chạy khi bạn bật và đồng ý, và khi đó câu hỏi của bạn được gửi tới Claude bằng tài khoản của bạn [24].",
+   "refs": [24]
+  },
+  {
+   "id": "help",
+   "keywords": ["huong dan", "su dung", "lam gi duoc", "giup", "tro giup", "chuc nang"],
+   "grade": "A",
+   "answer": "Bạn có thể gõ: 'bắt đầu đẳng thời 10 phút', 'dừng', 'tần số 7,79', 'âm lượng 20', 'mã phiên', 'kiểm chứng thiết bị', 'soi bit', 'trạng thái'. Hoặc hỏi: '7,83 Hz là gì?', 'có hại không?', 'điện thoại đo được không?', 'máy phát có tác dụng không?'.",
+   "refs": []
+  },
+  {
+   "id": "about",
+   "keywords": ["ai lam", "nguon tai lieu", "do ai viet", "tin cay", "kiem chung nguon"],
+   "grade": "A",
+   "answer": "Nội dung lấy từ báo cáo nghiên cứu kèm theo ứng dụng; mỗi câu trả lời có mức bằng chứng A–D và số tài liệu tham khảo. Báo cáo và ứng dụng do trợ lý AI soạn thảo, đã kiểm thử tự động, nhưng cần chuyên gia thẩm định trước khi dùng cho mục đích chính thức [53].",
+   "refs": [53]
+  }
+ ],
+ "generic": {"intent": "what_is", "keywords": ["schumann", "7 83", "783", "cong huong"]},
+ "fallback": "Mình chưa có câu trả lời chắc chắn cho câu này trong cơ sở tri thức ngoại tuyến. Bạn thử hỏi theo cách khác, gõ 'hướng dẫn' để xem lệnh, hoặc bật 'Hỏi Claude' nếu đang mở ứng dụng trong Claude."
+}

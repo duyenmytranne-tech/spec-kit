@@ -1,0 +1,500 @@
+{
+ "generated_utc": "2026-11-03T09:07:42.324Z",
+ "summary": {
+  "total": 67,
+  "passed": 67,
+  "failed": 0
+ },
+ "metrics": {
+  "parity_checks": 27,
+  "wav_samples_compared": 48000,
+  "wav_samples_differing": 0,
+  "wav_max_lsb_diff": 0,
+  "benchmark": {
+   "ok": 44,
+   "total": 44,
+   "miss": [],
+   "crisis": 3,
+   "medical": 3,
+   "cmds": 10,
+   "notc": 4
+  },
+  "scroll_width_at_360": 360,
+  "two_device_phase": {
+   "offset_ms": 3,
+   "expected_deg": 8.46,
+   "mean_deg": 8.19,
+   "max_abs_deg": 8.46,
+   "within_10deg": "20/20"
+  },
+  "verify_sample_f_hz": 7.8498,
+  "fault_injection_app": {
+   "single": 144,
+   "singleOk": 144,
+   "dbl": 400,
+   "dblOk": 400
+  },
+  "flash": {
+   "frames": 240,
+   "fps": 60.3,
+   "nyquist_ok_for_7_83Hz": true,
+   "tiles": 12,
+   "max_tile_luminance_step": 0.0048,
+   "max_flashes_per_second": 0
+  },
+  "report_html": {
+   "links": 24,
+   "broken": [],
+   "images": 9,
+   "notLoaded": 0,
+   "h1": 10,
+   "tables": 34
+  }
+ },
+ "checks": [
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "ieee.hex32",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "ieee.hex64",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "ieee.exact32",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "ieee.exact64",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "dds.32bit.48000",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "dds.32bit.44100",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "dds.32bit.96000",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "dds.24bit.48000",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "dds.32bit.16000000",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "dds.48bit.16000000",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "dds.24bit.1000000",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "timer1",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "phase.0",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "phase.1",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "phase.2",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "phase.3",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "secded72",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "secded22",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "secded8.7",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "secded8.8",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "secded8.3",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "settings_record",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "sync_code",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "chain.0",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "chain.1",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "splitmix64",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "sha256",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "kb_sha256_js_eq_node",
+   "pass": true,
+   "detail": "a7a8c7de81b7ad17"
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "wav_python_eq_js",
+   "pass": true,
+   "detail": {
+    "diff": 0,
+    "maxd": 0,
+    "bytes": 96044
+   }
+  },
+  {
+   "persona": "P6 đối chiếu bit",
+   "name": "no_console_errors",
+   "pass": true,
+   "detail": []
+  },
+  {
+   "persona": "P1 người dùng",
+   "name": "hoi_7_83_la_gi",
+   "pass": true,
+   "detail": "Bằng chứng A"
+  },
+  {
+   "persona": "P1 người dùng",
+   "name": "tin_don_tang_tan_so_bac_bo",
+   "pass": true,
+   "detail": "Bằng chứng D"
+  },
+  {
+   "persona": "P1 người dùng",
+   "name": "may_phat_co_muc_bang_chung",
+   "pass": true,
+   "detail": "Bằng chứng D"
+  },
+  {
+   "persona": "P1 người dùng",
+   "name": "lenh_bat_dau",
+   "pass": true,
+   "detail": "Đang phát"
+  },
+  {
+   "persona": "P1 người dùng",
+   "name": "trang_thai_phien",
+   "pass": true,
+   "detail": {
+    "playing": true,
+    "mode": "I"
+   }
+  },
+  {
+   "persona": "P1 người dùng",
+   "name": "lenh_dung",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P1 người dùng",
+   "name": "khung_hoang_co_115",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P1 người dùng",
+   "name": "benchmark_chu_de_>=90%",
+   "pass": true,
+   "detail": "44/44"
+  },
+  {
+   "persona": "P1 người dùng",
+   "name": "benchmark_khung_hoang_100%",
+   "pass": true,
+   "detail": "3/3"
+  },
+  {
+   "persona": "P1 người dùng",
+   "name": "benchmark_y_te_100%",
+   "pass": true,
+   "detail": "3/3"
+  },
+  {
+   "persona": "P1 người dùng",
+   "name": "benchmark_lenh_100%",
+   "pass": true,
+   "detail": "10/10"
+  },
+  {
+   "persona": "P1 người dùng",
+   "name": "cau_hoi_khong_thanh_lenh",
+   "pass": true,
+   "detail": "4/4"
+  },
+  {
+   "persona": "P1 người dùng",
+   "name": "khong_cuon_ngang_360px",
+   "pass": true,
+   "detail": 360
+  },
+  {
+   "persona": "P2 đồng bộ",
+   "name": "tao_ma_phien",
+   "pass": true,
+   "detail": "SR783-1-783-100-1793696848000-I-CBEE9389"
+  },
+  {
+   "persona": "P2 đồng bộ",
+   "name": "tham_gia_ma_phien",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P2 đồng bộ",
+   "name": "tham_so_trung_nhau",
+   "pass": true,
+   "detail": {
+    "p": "783",
+    "q": "100",
+    "t0": "1793696848000",
+    "mode": "I"
+   }
+  },
+  {
+   "persona": "P2 đồng bộ",
+   "name": "pha_trung_tuyet_doi_cung_thoi_diem",
+   "pass": true,
+   "detail": "82135/100000"
+  },
+  {
+   "persona": "P2 đồng bộ",
+   "name": "lech_pha_<10do_khi_lech_dong_ho_3ms_>=95%",
+   "pass": true,
+   "detail": {
+    "offset_ms": 3,
+    "expected_deg": 8.46,
+    "mean_deg": 8.19,
+    "max_abs_deg": 8.46,
+    "within_10deg": "20/20"
+   }
+  },
+  {
+   "persona": "P2 đồng bộ",
+   "name": "do_lech_pha_khop_ly_thuyet_360fδ",
+   "pass": true,
+   "detail": 8.19
+  },
+  {
+   "persona": "P2 đồng bộ",
+   "name": "tu_choi_ma_sai",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P3 kiểm định",
+   "name": "du_lieu_mau_7_85Hz_sai_<=0_01",
+   "pass": true,
+   "detail": 7.8498
+  },
+  {
+   "persona": "P3 kiểm định",
+   "name": "ket_luan_dat",
+   "pass": true,
+   "detail": "ĐạtNguồn: dữ liệu mẫu (7,85 Hz, nhiễu 0,"
+  },
+  {
+   "persona": "P3 kiểm định",
+   "name": "nhieu_thuan_khong_xac_dinh",
+   "pass": true,
+   "detail": "Không xác định: tín hiệu yếu (SNR < 10 dB)Nguồn: n"
+  },
+  {
+   "persona": "P3 kiểm định",
+   "name": "csv_schumann_chon_dong_hop_le",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P3 kiểm định",
+   "name": "dong_bo_theo_schumann_thuc_do_974_125",
+   "pass": true,
+   "detail": "974/125"
+  },
+  {
+   "persona": "P3 kiểm định",
+   "name": "tu_choi_ngoai_dai",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P4 độ bền",
+   "name": "lat_1_bit_moi_vi_tri_tu_sua_100%",
+   "pass": true,
+   "detail": {
+    "single": 144,
+    "singleOk": 144,
+    "dbl": 400,
+    "dblOk": 400
+   }
+  },
+  {
+   "persona": "P4 độ bền",
+   "name": "lat_2_bit_phat_hien_100%",
+   "pass": true,
+   "detail": {
+    "single": 144,
+    "singleOk": 144,
+    "dbl": 400,
+    "dblOk": 400
+   }
+  },
+  {
+   "persona": "P4 độ bền",
+   "name": "giao_dien_lat_1_bit",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P4 độ bền",
+   "name": "giao_dien_lat_2_bit",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P4 độ bền",
+   "name": "chuoi_bam_hop_le",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P4 độ bền",
+   "name": "chuoi_bam_phat_hien_sua_doi",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "persona": "P5 nhạy cảm ánh sáng",
+   "name": "lay_mau_tren_nguong_nyquist",
+   "pass": true,
+   "detail": 60.3
+  },
+  {
+   "persona": "P5 nhạy cảm ánh sáng",
+   "name": "khong_qua_3_lan_nhap_nhay_moi_giay",
+   "pass": true,
+   "detail": {
+    "frames": 240,
+    "fps": 60.3,
+    "nyquist_ok_for_7_83Hz": true,
+    "tiles": 12,
+    "max_tile_luminance_step": 0.0048,
+    "max_flashes_per_second": 0
+   }
+  },
+  {
+   "persona": "P5 nhạy cảm ánh sáng",
+   "name": "giao_dien_toi_dung_token",
+   "pass": true,
+   "detail": "rgb(11, 15, 29)"
+  },
+  {
+   "persona": "P7 người đọc",
+   "name": "lien_ket_noi_bo_khong_gay",
+   "pass": true,
+   "detail": []
+  },
+  {
+   "persona": "P7 người đọc",
+   "name": "hinh_tai_du_9",
+   "pass": true,
+   "detail": {
+    "links": 24,
+    "broken": [],
+    "images": 9,
+    "notLoaded": 0,
+    "h1": 10,
+    "tables": 34
+   }
+  }
+ ]
+}

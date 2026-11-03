@@ -1,0 +1,34 @@
+/* Report stylesheet: screen reading + A4 print following Nghị định 30/2020/NĐ-CP conventions
+   (Times New Roman family, 13-14 pt body, margins top/bottom 20 mm, left 30 mm, right 15 mm,
+   page number centred in the top margin, hidden on the first page). */
+:root { --ink: #111318; --ink-2: #3d4250; --rule: #9aa0ad; --soft: #eef0f5; --link: #1f3fb8; }
+html { background: #ffffff; }
+body { margin: 0 auto; max-width: 860px; padding: 24px 20px 64px; background: #ffffff; color: var(--ink);
+  font-family: "Times New Roman", "Liberation Serif", "DejaVu Serif", Tinos, "Noto Serif", serif; font-size: 18px; line-height: 1.55; }
+h1, h2, h3 { line-height: 1.3; text-wrap: balance; }
+h1 { font-size: 1.45em; margin: 1.6em 0 .6em; }
+h2 { font-size: 1.2em; margin: 1.4em 0 .5em; }
+h3 { font-size: 1.05em; }
+p, li { text-align: justify; hyphens: auto; }
+a { color: var(--link); }
+table { border-collapse: collapse; width: 100%; margin: .8em 0 1.2em; font-size: .86em; display: block; overflow-x: auto; }
+th, td { border: 1px solid var(--rule); padding: 4px 7px; vertical-align: top; text-align: left; }
+th { background: var(--soft); }
+code { font-family: "Liberation Mono", "DejaVu Sans Mono", Consolas, monospace; font-size: .86em; overflow-wrap: anywhere; }
+pre { background: var(--soft); padding: 10px 12px; overflow-x: auto; font-size: .85em; }
+figure { margin: 1.2em 0; text-align: center; }
+figure img, p img { max-width: 100%; height: auto; border: 1px solid #e3e5eb; }
+figcaption { font-size: .9em; color: var(--ink-2); font-style: italic; margin-top: .3em; }
+blockquote { margin: 1em 0; padding: .2em 1em; border-left: 3px solid var(--rule); color: var(--ink-2); }
+@media print {
+  @page { size: A4; margin: 20mm 15mm 20mm 30mm;
+    @top-center { content: counter(page); font-family: "Times New Roman", "Liberation Serif", serif; font-size: 13pt; } }
+  @page :first { @top-center { content: none; } }
+  body { max-width: none; padding: 0; font-size: 13pt; line-height: 1.4; }
+  h1 { break-before: page; font-size: 14pt; }
+  h1:first-of-type { break-before: auto; }
+  h2 { font-size: 13pt; } h3 { font-size: 13pt; font-style: italic; }
+  table { display: table; font-size: 10.5pt; break-inside: auto; }
+  tr, figure { break-inside: avoid; }
+  a { color: var(--ink); text-decoration: none; }
+}

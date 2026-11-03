@@ -1,0 +1,4 @@
+# Gói nghiên cứu này là một dự án Spec Kit độc lập: đặc tả và hiến chương là sản phẩm bàn giao,
+# nên được theo dõi dù .gitignore gốc của kho mã bỏ qua mọi thư mục specs/ và .specify/ (dogfooding).
+!specs/
+!.specify/

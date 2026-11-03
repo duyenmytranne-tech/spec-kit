@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="760" height="380" font-family="Liberation Sans, Arial, Helvetica, DejaVu Sans, sans-serif" role="img" aria-label="Hình 7. Sai số tuyệt đối trung bình khi ước lượng f₁ (400 phổ kiểm thử)">
+<title>Hình 7. Sai số tuyệt đối trung bình khi ước lượng f₁ (400 phổ kiểm thử)</title>
+<desc>Cột đôi MAE theo phương pháp; phương pháp lai đạt sai số thấp nhất ở cả hai nhóm.</desc>
+<rect x="0" y="0" width="760" height="380" fill="#fcfcfb"/>
+<text x="72" y="22" font-size="15" font-weight="700" fill="#0b0b0b">Hình 7. Sai số tuyệt đối trung bình khi ước lượng f₁ (400 phổ kiểm thử)</text>
+<text x="72" y="40" font-size="12" fill="#52514e">Phổ mô phỏng có nhiễu nhân 12 % và 35 % mẫu có vạch nhiễu nhân tạo hẹp</text>
+<line x1="72.00" y1="316.00" x2="736.00" y2="316.00" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="72.00" y1="253.00" x2="736.00" y2="253.00" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="72.00" y1="190.00" x2="736.00" y2="190.00" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="72.00" y1="127.00" x2="736.00" y2="127.00" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="72.00" y1="64.00" x2="736.00" y2="64.00" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="72.00" y1="316.00" x2="736.00" y2="316.00" stroke="#c3c2b7"/>
+<path d="M100.15,316.00 V277.29 Q100.15,273.29 104.15,273.29 H130.15 Q134.15,273.29 134.15,277.29 V316.00 Z" fill="#2a78d6"><title>Đỉnh cực đại - không nhiễu vạch: 0.1356 Hz</title></path>
+<path d="M142.65,316.00 V103.88 Q142.65,99.88 146.65,99.88 H172.65 Q176.65,99.88 176.65,103.88 V316.00 Z" fill="#eb6834"><title>Đỉnh cực đại - có nhiễu vạch: 0.6861 Hz</title></path>
+<path d="M232.95,316.00 V311.62 Q232.95,307.62 236.95,307.62 H262.95 Q266.95,307.62 266.95,311.62 V316.00 Z" fill="#2a78d6"><title>Khớp Lorentz - không nhiễu vạch: 0.0266 Hz</title></path>
+<path d="M275.45,316.00 V278.55 Q275.45,274.55 279.45,274.55 H305.45 Q309.45,274.55 309.45,278.55 V316.00 Z" fill="#eb6834"><title>Khớp Lorentz - có nhiễu vạch: 0.1316 Hz</title></path>
+<path d="M365.75,316.00 V311.09 Q365.75,307.09 369.75,307.09 H395.75 Q399.75,307.09 399.75,311.09 V316.00 Z" fill="#2a78d6"><title>Lorentz bền vững - không nhiễu vạch: 0.0283 Hz</title></path>
+<path d="M408.25,316.00 V291.93 Q408.25,287.93 412.25,287.93 H438.25 Q442.25,287.93 442.25,291.93 V316.00 Z" fill="#eb6834"><title>Lorentz bền vững - có nhiễu vạch: 0.0891 Hz</title></path>
+<path d="M498.55,316.00 V304.85 Q498.55,300.85 502.55,300.85 H528.55 Q532.55,300.85 532.55,304.85 V316.00 Z" fill="#2a78d6"><title>Ridge (ML) - không nhiễu vạch: 0.0481 Hz</title></path>
+<path d="M541.05,316.00 V300.41 Q541.05,296.41 545.05,296.41 H571.05 Q575.05,296.41 575.05,300.41 V316.00 Z" fill="#eb6834"><title>Ridge (ML) - có nhiễu vạch: 0.0622 Hz</title></path>
+<path d="M631.35,316.00 V311.09 Q631.35,307.09 635.35,307.09 H661.35 Q665.35,307.09 665.35,311.09 V316.00 Z" fill="#2a78d6"><title>Lai ML + Lorentz - không nhiễu vạch: 0.0283 Hz</title></path>
+<path d="M673.85,316.00 V309.70 Q673.85,305.70 677.85,305.70 H703.85 Q707.85,305.70 707.85,309.70 V316.00 Z" fill="#eb6834"><title>Lai ML + Lorentz - có nhiễu vạch: 0.0327 Hz</title></path>
+<text x="64.00" y="320.00" font-size="11" fill="#898781" text-anchor="end" font-weight="400">0,0</text>
+<text x="64.00" y="257.00" font-size="11" fill="#898781" text-anchor="end" font-weight="400">0,2</text>
+<text x="64.00" y="194.00" font-size="11" fill="#898781" text-anchor="end" font-weight="400">0,4</text>
+<text x="64.00" y="131.00" font-size="11" fill="#898781" text-anchor="end" font-weight="400">0,6</text>
+<text x="64.00" y="68.00" font-size="11" fill="#898781" text-anchor="end" font-weight="400">0,8</text>
+<text x="16" y="190.00" font-size="12" fill="#52514e" text-anchor="middle" transform="rotate(-90 16 190.00)">MAE (Hz)</text>
+<text x="138.40" y="334.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">Đỉnh cực đại</text>
+<text x="159.65" y="93.88" font-size="11" fill="#0b0b0b" text-anchor="middle" font-weight="700">0,686</text>
+<text x="117.15" y="267.29" font-size="11" fill="#0b0b0b" text-anchor="middle" font-weight="400">0,136</text>
+<text x="271.20" y="334.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">Khớp Lorentz</text>
+<text x="404.00" y="334.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">Lorentz bền vững</text>
+<text x="536.80" y="334.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">Ridge (ML)</text>
+<text x="669.60" y="334.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">Lai ML + Lorentz</text>
+<text x="690.85" y="299.70" font-size="11" fill="#0b0b0b" text-anchor="middle" font-weight="700">0,033</text>
+<text x="648.35" y="301.09" font-size="11" fill="#0b0b0b" text-anchor="middle" font-weight="400">0,028</text>
+<text x="404.00" y="366.00" font-size="12" fill="#52514e" text-anchor="middle" font-weight="400">Phương pháp ước lượng</text>
+<rect x="374.00" y="46.00" width="14" height="12" rx="2" fill="#2a78d6"/>
+<text x="396.00" y="56.00" font-size="12" fill="#52514e" text-anchor="start" font-weight="400">Không nhiễu vạch</text>
+<rect x="513.60" y="46.00" width="14" height="12" rx="2" fill="#eb6834"/>
+<text x="535.60" y="56.00" font-size="12" fill="#52514e" text-anchor="start" font-weight="400">Có nhiễu vạch nhân tạo</text>
+</svg>

@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="760" height="380" font-family="Liberation Sans, Arial, Helvetica, DejaVu Sans, sans-serif" role="img" aria-label="Hình 4. Sai số tần số DDS theo độ rộng bộ tích lũy pha">
+<title>Hình 4. Sai số tần số DDS theo độ rộng bộ tích lũy pha</title>
+<desc>Hai đường giảm dần theo N; sai số nhỏ hơn 20 ppm từ N = 26 (48 kHz) và N = 36 (16 MHz).</desc>
+<rect x="0" y="0" width="760" height="380" fill="#fcfcfb"/>
+<text x="72" y="22" font-size="15" font-weight="700" fill="#0b0b0b">Hình 4. Sai số tần số DDS theo độ rộng bộ tích lũy pha</text>
+<text x="72" y="40" font-size="12" fill="#52514e">Tần số mục tiêu 7,83 Hz; đường đứt = dung sai thạch anh 20 ppm</text>
+<line x1="72.00" y1="302.15" x2="736.00" y2="302.15" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="72.00" y1="242.62" x2="736.00" y2="242.62" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="72.00" y1="183.08" x2="736.00" y2="183.08" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="72.00" y1="123.54" x2="736.00" y2="123.54" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="72.00" y1="64.00" x2="736.00" y2="64.00" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="72.00" y1="322.00" x2="736.00" y2="322.00" stroke="#c3c2b7" stroke-width="1"/>
+<line x1="72.00" y1="322.00" x2="72.00" y2="326.00" stroke="#c3c2b7"/>
+<line x1="145.78" y1="322.00" x2="145.78" y2="326.00" stroke="#c3c2b7"/>
+<line x1="219.56" y1="322.00" x2="219.56" y2="326.00" stroke="#c3c2b7"/>
+<line x1="293.33" y1="322.00" x2="293.33" y2="326.00" stroke="#c3c2b7"/>
+<line x1="367.11" y1="322.00" x2="367.11" y2="326.00" stroke="#c3c2b7"/>
+<line x1="440.89" y1="322.00" x2="440.89" y2="326.00" stroke="#c3c2b7"/>
+<line x1="514.67" y1="322.00" x2="514.67" y2="326.00" stroke="#c3c2b7"/>
+<line x1="588.44" y1="322.00" x2="588.44" y2="326.00" stroke="#c3c2b7"/>
+<line x1="662.22" y1="322.00" x2="662.22" y2="326.00" stroke="#c3c2b7"/>
+<line x1="736.00" y1="322.00" x2="736.00" y2="326.00" stroke="#c3c2b7"/>
+<line x1="72.00" y1="157.26" x2="736.00" y2="157.26" stroke="#898781" stroke-dasharray="4 4"/>
+<polyline points="72.00,70.03 108.89,82.10 145.78,94.53 182.67,108.75 219.56,134.32 256.44,134.32 293.33,145.40 330.22,161.52 367.11,162.69 404.00,185.32 440.89,186.71 477.78,207.72 514.67,212.77 551.56,223.14 588.44,238.75 625.33,257.76 662.22,257.76 699.11,298.01 736.00,298.01" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></polyline>
+<circle cx="72.00" cy="70.03" r="3.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 48 kHz (âm thanh), N=12: 0.497</title></circle>
+<circle cx="108.89" cy="82.10" r="3.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 48 kHz (âm thanh), N=14: 0.122</title></circle>
+<circle cx="145.78" cy="94.53" r="3.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 48 kHz (âm thanh), N=16: 0.0289</title></circle>
+<circle cx="182.67" cy="108.75" r="3.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 48 kHz (âm thanh), N=18: 0.00556</title></circle>
+<circle cx="219.56" cy="134.32" r="3.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 48 kHz (âm thanh), N=20: 0.000286</title></circle>
+<circle cx="256.44" cy="134.32" r="3.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 48 kHz (âm thanh), N=22: 0.000286</title></circle>
+<circle cx="293.33" cy="145.40" r="3.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 48 kHz (âm thanh), N=24: 7.92e-05</title></circle>
+<circle cx="330.22" cy="161.52" r="3.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 48 kHz (âm thanh), N=26: 1.22e-05</title></circle>
+<circle cx="367.11" cy="162.69" r="3.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 48 kHz (âm thanh), N=28: 1.06e-05</title></circle>
+<circle cx="404.00" cy="185.32" r="3.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 48 kHz (âm thanh), N=30: 7.71e-07</title></circle>
+<circle cx="440.89" cy="186.71" r="3.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 48 kHz (âm thanh), N=32: 6.56e-07</title></circle>
+<circle cx="477.78" cy="207.72" r="3.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 48 kHz (âm thanh), N=34: 5.73e-08</title></circle>
+<circle cx="514.67" cy="212.77" r="3.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 48 kHz (âm thanh), N=36: 3.19e-08</title></circle>
+<circle cx="551.56" cy="223.14" r="3.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 48 kHz (âm thanh), N=38: 9.58e-09</title></circle>
+<circle cx="588.44" cy="238.75" r="3.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 48 kHz (âm thanh), N=40: 1.57e-09</title></circle>
+<circle cx="625.33" cy="257.76" r="3.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 48 kHz (âm thanh), N=42: 1.73e-10</title></circle>
+<circle cx="662.22" cy="257.76" r="3.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 48 kHz (âm thanh), N=44: 1.73e-10</title></circle>
+<circle cx="699.11" cy="298.01" r="3.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 48 kHz (âm thanh), N=46: 1.62e-12</title></circle>
+<circle cx="736.00" cy="298.01" r="3.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 48 kHz (âm thanh), N=48: 1.62e-12</title></circle>
+<polyline points="72.00,64.00 108.89,64.00 145.78,64.00 182.67,64.00 219.56,64.45 256.44,95.58 293.33,95.58 330.22,109.97 367.11,114.72 404.00,124.64 440.89,146.27 477.78,149.82 514.67,161.61 551.56,174.22 588.44,183.76 625.33,228.27 662.22,228.27 699.11,228.27 736.00,236.74" fill="none" stroke="#eb6834" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></polyline>
+<circle cx="72.00" cy="64.00" r="3.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 16 MHz (vi điều khiển), N=12: 1</title></circle>
+<circle cx="108.89" cy="64.00" r="3.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 16 MHz (vi điều khiển), N=14: 1</title></circle>
+<circle cx="145.78" cy="64.00" r="3.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 16 MHz (vi điều khiển), N=16: 1</title></circle>
+<circle cx="182.67" cy="64.00" r="3.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 16 MHz (vi điều khiển), N=18: 1</title></circle>
+<circle cx="219.56" cy="64.45" r="3.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 16 MHz (vi điều khiển), N=20: 0.949</title></circle>
+<circle cx="256.44" cy="95.58" r="3.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 16 MHz (vi điều khiển), N=22: 0.0256</title></circle>
+<circle cx="293.33" cy="95.58" r="3.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 16 MHz (vi điều khiển), N=24: 0.0256</title></circle>
+<circle cx="330.22" cy="109.97" r="3.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 16 MHz (vi điều khiển), N=26: 0.00483</title></circle>
+<circle cx="367.11" cy="114.72" r="3.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 16 MHz (vi điều khiển), N=28: 0.00278</title></circle>
+<circle cx="404.00" cy="124.64" r="3.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 16 MHz (vi điều khiển), N=30: 0.00088</title></circle>
+<circle cx="440.89" cy="146.27" r="3.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 16 MHz (vi điều khiển), N=32: 7.15e-05</title></circle>
+<circle cx="477.78" cy="149.82" r="3.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 16 MHz (vi điều khiển), N=34: 4.74e-05</title></circle>
+<circle cx="514.67" cy="161.61" r="3.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 16 MHz (vi điều khiển), N=36: 1.21e-05</title></circle>
+<circle cx="551.56" cy="174.22" r="3.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 16 MHz (vi điều khiển), N=38: 2.79e-06</title></circle>
+<circle cx="588.44" cy="183.76" r="3.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 16 MHz (vi điều khiển), N=40: 9.24e-07</title></circle>
+<circle cx="625.33" cy="228.27" r="3.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 16 MHz (vi điều khiển), N=42: 5.28e-09</title></circle>
+<circle cx="662.22" cy="228.27" r="3.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 16 MHz (vi điều khiển), N=44: 5.28e-09</title></circle>
+<circle cx="699.11" cy="228.27" r="3.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 16 MHz (vi điều khiển), N=46: 5.28e-09</title></circle>
+<circle cx="736.00" cy="236.74" r="3.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"><title>f_clk = 16 MHz (vi điều khiển), N=48: 1.98e-09</title></circle>
+<text x="64.00" y="306.15" font-size="11" fill="#898781" text-anchor="end" font-weight="400">10⁻¹²</text>
+<text x="64.00" y="246.62" font-size="11" fill="#898781" text-anchor="end" font-weight="400">10⁻⁹</text>
+<text x="64.00" y="187.08" font-size="11" fill="#898781" text-anchor="end" font-weight="400">10⁻⁶</text>
+<text x="64.00" y="127.54" font-size="11" fill="#898781" text-anchor="end" font-weight="400">10⁻³</text>
+<text x="64.00" y="68.00" font-size="11" fill="#898781" text-anchor="end" font-weight="400">1</text>
+<text x="16" y="193.00" font-size="12" fill="#52514e" text-anchor="middle" transform="rotate(-90 16 193.00)">Sai số tương đối |Δf|/f</text>
+<text x="72.00" y="340.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">12</text>
+<text x="145.78" y="340.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">16</text>
+<text x="219.56" y="340.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">20</text>
+<text x="293.33" y="340.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">24</text>
+<text x="367.11" y="340.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">28</text>
+<text x="440.89" y="340.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">32</text>
+<text x="514.67" y="340.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">36</text>
+<text x="588.44" y="340.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">40</text>
+<text x="662.22" y="340.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">44</text>
+<text x="736.00" y="340.00" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">48</text>
+<text x="404.00" y="368.00" font-size="12" fill="#52514e" text-anchor="middle" font-weight="400">Số bit của bộ tích lũy pha N</text>
+<text x="732.00" y="151.26" font-size="11" fill="#52514e" text-anchor="end" font-weight="400">20 ppm (thạch anh)</text>
+<line x1="72.00" y1="52.00" x2="90.00" y2="52.00" stroke="#2a78d6" stroke-width="2"/>
+<text x="96.00" y="56.00" font-size="12" fill="#52514e" text-anchor="start" font-weight="400">f_clk = 48 kHz (âm thanh)</text>
+<line x1="271.00" y1="52.00" x2="289.00" y2="52.00" stroke="#eb6834" stroke-width="2"/>
+<text x="295.00" y="56.00" font-size="12" fill="#52514e" text-anchor="start" font-weight="400">f_clk = 16 MHz (vi điều khiển)</text>
+</svg>
